@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New York City Council - The Official Website of the New York City Council</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #003366;
+            color: white;
+            padding: 15px 0;
+        }
+
+        .top-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 60px;
+            margin-right: 15px;
+        }
+
+        .logo-text h1 {
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        .logo-text p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .search-bar {
+            display: flex;
+        }
+
+        .search-bar input {
+            padding: 8px 12px;
+            border: none;
+            border-radius: 4px 0 0 4px;
+            width: 250px;
+        }
+
+        .search-bar button {
+            background: #0055a4;
+            border: none;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+        }
+
+        .main-nav {
+            display: flex;
+            justify-content: space-between;
+            padding-top: 15px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-right: 25px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #ffcc00;
+        }
+
+        .language-selector select {
+            background: transparent;
+            color: white;
+            border: 1px solid rgba(255,255,255,0.3);
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+
+        .language-selector option {
+            color: #333;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1500916434205-0c77489c6cf7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .hero h2 {
+            font-size: 42px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 20px;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #ffcc00;
+            color: #003366;
+            padding: 12px 30px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 18px;
+            transition: background 0.3s;
+        }
+
+        .cta-button:hover {
+            background: #e6b800;
+        }
+
+        /* Quick Links */
+        .quick-links {
+            background: #0055a4;
+            padding: 20px 0;
+        }
+
+        .quick-links-container {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .quick-link {
+            flex: 1;
+            text-align: center;
+            color: white;
+            text-decoration: none;
+            padding: 15px;
+            transition: background 0.3s;
+        }
+
+        .quick-link:hover {
+            background: rgba(255,255,255,0.1);
+        }
+
+        .quick-link i {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .quick-link span {
+            display: block;
+            font-weight: 500;
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 50px 0;
+            background: white;
+        }
+
+        .section-title {
+            font-size: 28px;
+            color: #003366;
+            margin-bottom: 30px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #ffcc00;
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .news-card {
+            border: 1px solid #e0e0e0;
+            border-radius: 4px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .news-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .news-image {
+            height: 180px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .news-content {
+            padding: 20px;
+        }
+
+        .news-date {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .news-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #003366;
+        }
+
+        .news-excerpt {
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .read-more {
+            color: #0055a4;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .read-more:hover {
+            text-decoration: underline;
+        }
+
+        .featured-section {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .featured-content h3 {
+            font-size: 24px;
+            color: #003366;
+            margin-bottom: 20px;
+        }
+
+        .featured-content p {
+            margin-bottom: 20px;
+        }
+
+        .featured-list {
+            list-style: none;
+        }
+
+        .featured-list li {
+            margin-bottom: 15px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .featured-list li:before {
+            content: "•";
+            color: #ffcc00;
+            font-size: 20px;
+            position: absolute;
+            left: 0;
+        }
+
+        .featured-list a {
+            color: #0055a4;
+            text-decoration: none;
+        }
+
+        .featured-list a:hover {
+            text-decoration: underline;
+        }
+
+        .upcoming-events {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 4px;
+        }
+
+        .upcoming-events h3 {
+            font-size: 22px;
+            color: #003366;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .event-item {
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .event-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .event-date {
+            font-weight: 600;
+            color: #0055a4;
+            margin-bottom: 5px;
+        }
+
+        .event-title {
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+
+        .event-location {
+            color: #666;
+            font-size: 14px;
+        }
+
+        /* Footer */
+        footer {
+            background: #003366;
+            color: white;
+            padding: 50px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #ffcc00;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .contact-info p {
+            margin-bottom: 10px;
+            color: #ccc;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 20px;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: #ffcc00;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #ccc;
+            font-size: 14px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .featured-section {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .top-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .logo {
+                margin-bottom: 15px;
+            }
+            
+            .main-nav {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+                margin-bottom: 15px;
+            }
+            
+            .nav-links li {
+                margin: 0 10px 10px;
+            }
+            
+            .quick-links-container {
+                flex-direction: column;
+            }
+            
+            .news-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero h2 {
+                font-size: 32px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="top-header">
+                <div class="logo">
+                    <img src="https://council.nyc.gov/wp-content/themes/nycc/images/nycc-logo.svg" alt="NYC Council Logo">
+                    <div class="logo-text">
+                        <h1>New York City Council</h1>
+                        <p>The Official Website of the New York City Council</p>
+                    </div>
+                </div>
+                <div class="search-bar">
+                    <input type="text" placeholder="Search...">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+            <div class="main-nav">
+                <ul class="nav-links">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About the Council</a></li>
+                    <li><a href="#">Council Members</a></li>
+                    <li><a href="#">Legislation</a></li>
+                    <li><a href="#">News</a></li>
+                    <li><a href="#">Events</a></li>
+                    <li><a href="#">Resources</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+                <div class="language-selector">
+                    <select>
+                        <option>English</option>
+                        <option>Español</option>
+                        <option>中文</option>
+                        <option>Русский</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h2>Representing New Yorkers</h2>
+            <p>The New York City Council is the lawmaking body of the City of New York. It is comprised of 51 members from 51 council districts throughout the five boroughs.</p>
+            <a href="#" class="cta-button">Learn More About the Council</a>
+        </div>
+    </section>
+
+    <!-- Quick Links -->
+    <section class="quick-links">
+        <div class="container quick-links-container">
+            <a href="#" class="quick-link">
+                <i class="fas fa-users"></i>
+                <span>Find Your Council Member</span>
+            </a>
+            <a href="#" class="quick-link">
+                <i class="fas fa-file-alt"></i>
+                <span>View Legislation</span>
+            </a>
+            <a href="#" class="quick-link">
+                <i class="fas fa-calendar-alt"></i>
+                <span>Attend a Meeting</span>
+            </a>
+            <a href="#" class="quick-link">
+                <i class="fas fa-bullhorn"></i>
+                <span>Testify at a Hearing</span>
+            </a>
+            <a href="#" class="quick-link">
+                <i class="fas fa-search"></i>
+                <span>Track the Budget</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <h2 class="section-title">Latest News</h2>
+            <div class="news-grid">
+                <div class="news-card">
+                    <div class="news-image" style="background-image: url('https://images.unsplash.com/photo-1583324113626-70df0f4deaab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80');"></div>
+                    <div class="news-content">
+                        <div class="news-date">June 15, 2023</div>
+                        <h3 class="news-title">City Council Passes Affordable Housing Legislation</h3>
+                        <p class="news-excerpt">New package of bills aims to address the city's housing crisis and protect tenants.</p>
+                        <a href="#" class="read-more">Read More</a>
+                    </div>
+                </div>
+                <div class="news-card">
+                    <div class="news-image" style="background-image: url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80');"></div>
+                    <div class="news-content">
+                        <div class="news-date">June 12, 2023</div>
+                        <h3 class="news-title">Council Announces Climate Resiliency Initiative</h3>
+                        <p class="news-excerpt">$2 billion plan to protect NYC neighborhoods from climate change impacts.</p>
+                        <a href="#" class="read-more">Read More</a>
+                    </div>
+                </div>
+                <div class="news-card">
+                    <div class="news-image" style="background-image: url('https://images.unsplash.com/photo-1551135049-8a33b5883817?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80');"></div>
+                    <div class="news-content">
+                        <div class="news-date">June 8, 2023</div>
+                        <h3 class="news-title">Small Business Recovery Grants Now Available</h3>
+                        <p class="news-excerpt">Council allocates $50 million to support local businesses affected by pandemic.</p>
+                        <a href="#" class="read-more">Read More</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="featured-section">
+                <div class="featured-content">
+                    <h3>About the New York City Council</h3>
+                    <p>The New York City Council is the law-making body of New York City. The Council monitors the operation and performance of city agencies, makes land use decisions, and approves the city's budget.</p>
+                    <p>The Council is an equal partner with the Mayor in the governance of the city. It is made up of 51 members, each elected from a separate district across the five boroughs for a four-year term.</p>
+                    
+                    <h3 style="margin-top: 30px;">Key Responsibilities</h3>
+                    <ul class="featured-list">
+                        <li><a href="#">Introducing and passing legislation</a></li>
+                        <li><a href="#">Approving the city's budget</a></li>
+                        <li><a href="#">Monitoring city agencies</a></li>
+                        <li><a href="#">Making land use decisions</a></li>
+                        <li><a href="#">Overseeing city programs</a></li>
+                    </ul>
+                </div>
+                
+                <div class="upcoming-events">
+                    <h3>Upcoming Events</h3>
+                    <div class="event-item">
+                        <div class="event-date">June 20, 2023 | 10:00 AM</div>
+                        <div class="event-title">Committee on Finance Hearing</div>
+                        <div class="event-location">City Hall, Committee Room</div>
+                    </div>
+                    <div class="event-item">
+                        <div class="event-date">June 22, 2023 | 1:30 PM</div>
+                        <div class="event-title">Stated Meeting of the Council</div>
+                        <div class="event-location">City Hall, Council Chambers</div>
+                    </div>
+                    <div class="event-item">
+                        <div class="event-date">June 25, 2023 | 6:00 PM</div>
+                        <div class="event-title">Town Hall: Public Safety</div>
+                        <div class="event-location">Brooklyn Borough Hall</div>
+                    </div>
+                    <div class="event-item">
+                        <div class="event-date">June 28, 2023 | 11:00 AM</div>
+                        <div class="event-title">Committee on Education Hearing</div>
+                        <div class="event-location">250 Broadway, 16th Floor</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>About the Council</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Council Members</a></li>
+                        <li><a href="#">Committees</a></li>
+                        <li><a href="#">Legislative Process</a></li>
+                        <li><a href="#">History of the Council</a></li>
+                        <li><a href="#">Jobs at the Council</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Council Reports</a></li>
+                        <li><a href="#">Budget Documents</a></li>
+                        <li><a href="#">Public Hearing Schedule</a></li>
+                        <li><a href="#">Rules of the Council</a></li>
+                        <li><a href="#">Open Data</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Get Involved</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Attend a Meeting</a></li>
+                        <li><a href="#">Testify at a Hearing</a></li>
+                        <li><a href="#">Contact Your Council Member</a></li>
+                        <li><a href="#">Request a Proclamation</a></li>
+                        <li><a href="#">Internships</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <div class="contact-info">
+                        <p><strong>New York City Council</strong></p>
+                        <p>City Hall</p>
+                        <p>New York, NY 10007</p>
+                        <p>Phone: (212) 788-7100</p>
+                        <p>Email: council@council.nyc.gov</p>
+                    </div>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 New York City Council. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple search functionality
+        document.querySelector('.search-bar button').addEventListener('click', function() {
+            const searchTerm = document.querySelector('.search-bar input').value;
+            if (searchTerm.trim() !== '') {
+                alert(`Searching for: ${searchTerm}`);
+                // In a real implementation, this would redirect to search results
+            }
+        });
+
+        // Allow Enter key to trigger search
+        document.querySelector('.search-bar input').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                document.querySelector('.search-bar button').click();
+            }
+        });
+
+        // Simple language selector functionality
+        document.querySelector('.language-selector select').addEventListener('change', function() {
+            const selectedLanguage = this.value;
+            alert(`Language changed to: ${selectedLanguage}`);
+            // In a real implementation, this would change the site language
+        });
+    </script>
+</body>
+</html>
