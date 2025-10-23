@@ -346,6 +346,145 @@
             color: var(--gray);
         }
 
+        /* NEW SECTIONS ADDED */
+        .quick-links {
+            padding: 40px 0;
+            background: white;
+        }
+
+        .quick-links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .quick-link-item {
+            text-align: center;
+            padding: 20px;
+            border-radius: 8px;
+            background: var(--light);
+            transition: all 0.3s;
+        }
+
+        .quick-link-item:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-5px);
+        }
+
+        .quick-link-item i {
+            font-size: 36px;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+
+        .quick-link-item:hover i {
+            color: white;
+        }
+
+        .projects {
+            padding: 60px 0;
+            background: var(--light);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .project-img {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .project-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .project-card:hover .project-img img {
+            transform: scale(1.05);
+        }
+
+        .project-content {
+            padding: 20px;
+        }
+
+        .project-content h3 {
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+
+        .stats {
+            padding: 60px 0;
+            background: var(--primary);
+            color: white;
+            text-align: center;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+
+        .stat-item {
+            padding: 20px;
+        }
+
+        .stat-number {
+            font-size: 48px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: var(--secondary);
+        }
+
+        .stat-label {
+            font-size: 18px;
+        }
+
+        .partners {
+            padding: 60px 0;
+            background: white;
+        }
+
+        .partners-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 30px;
+            align-items: center;
+        }
+
+        .partner-logo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100px;
+            filter: grayscale(100%);
+            opacity: 0.7;
+            transition: all 0.3s;
+        }
+
+        .partner-logo:hover {
+            filter: grayscale(0%);
+            opacity: 1;
+        }
+
+        .partner-logo img {
+            max-width: 100%;
+            max-height: 80px;
+        }
+
         .footer {
             background: var(--dark);
             color: white;
@@ -539,3 +678,286 @@
         <div class="container">
             <div class="section-title">
                 <h2>Our Services</h2>
+                <p>We offer a wide range of services to residents, businesses and visitors of Kampala</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Business Licensing</h3>
+                        <p>Register and obtain licenses for your business operations in Kampala.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Building Permits</h3>
+                        <p>Apply for building permits and ensure compliance with city regulations.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-trash-alt"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Waste Management</h3>
+                        <p>Proper waste collection and disposal services across the city.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-road"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Road Maintenance</h3>
+                        <p>Reporting and fixing of road issues to ensure smooth transportation.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW QUICK LINKS SECTION -->
+    <section class="quick-links">
+        <div class="container">
+            <div class="quick-links-grid">
+                <a href="#" class="quick-link-item">
+                    <i class="fas fa-file-invoice-dollar"></i>
+                    <h3>Pay Bills</h3>
+                </a>
+                <a href="#" class="quick-link-item">
+                    <i class="fas fa-clipboard-list"></i>
+                    <h3>Apply for Permit</h3>
+                </a>
+                <a href="#" class="quick-link-item">
+                    <i class="fas fa-tasks"></i>
+                    <h3>Service Request</h3>
+                </a>
+                <a href="#" class="quick-link-item">
+                    <i class="fas fa-calendar-alt"></i>
+                    <h3>Events</h3>
+                </a>
+                <a href="#" class="quick-link-item">
+                    <i class="fas fa-download"></i>
+                    <h3>Downloads</h3>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEWS SECTION -->
+    <section class="news">
+        <div class="container">
+            <div class="section-title">
+                <h2>Latest News & Updates</h2>
+                <p>Stay informed with the latest developments and announcements from KCCA</p>
+            </div>
+            <div class="news-grid">
+                <div class="news-card">
+                    <div class="news-img">
+                        <img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="News Image">
+                    </div>
+                    <div class="news-content">
+                        <div class="news-date">June 15, 2023</div>
+                        <h3>KCCA Launches New Digital Services Portal</h3>
+                        <p>The new portal will enable residents to access services online, reducing time spent at our offices.</p>
+                        <a href="#" class="btn">Read More</a>
+                    </div>
+                </div>
+                <div class="news-card">
+                    <div class="news-img">
+                        <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1174&q=80" alt="News Image">
+                    </div>
+                    <div class="news-content">
+                        <div class="news-date">June 10, 2023</div>
+                        <h3>Major Road Rehabilitation Project Begins</h3>
+                        <p>KCCA has commenced the rehabilitation of major roads in the central business district.</p>
+                        <a href="#" class="btn">Read More</a>
+                    </div>
+                </div>
+                <div class="news-card">
+                    <div class="news-img">
+                        <img src="https://images.unsplash.com/photo-1574267432553-4b4628081c31?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1631&q=80" alt="News Image">
+                    </div>
+                    <div class="news-content">
+                        <div class="news-date">June 5, 2023</div>
+                        <h3>Public Health Awareness Campaign</h3>
+                        <p>KCCA is conducting a city-wide public health awareness campaign on proper waste disposal.</p>
+                        <a href="#" class="btn">Read More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJECTS SECTION -->
+    <section class="projects">
+        <div class="container">
+            <div class="section-title">
+                <h2>Ongoing Projects</h2>
+                <p>Explore the major infrastructure and development projects currently underway in Kampala</p>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1174&q=80" alt="Project Image">
+                    </div>
+                    <div class="project-content">
+                        <h3>Road Infrastructure Development</h3>
+                        <p>Upgrading and expansion of major roads and drainage systems across the city.</p>
+                        <a href="#" class="btn">View Details</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1073&q=80" alt="Project Image">
+                    </div>
+                    <div class="project-content">
+                        <h3>Public Market Modernization</h3>
+                        <p>Renovation and modernization of public markets to improve hygiene and accessibility.</p>
+                        <a href="#" class="btn">View Details</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Project Image">
+                    </div>
+                    <div class="project-content">
+                        <h3>Digital Transformation Initiative</h3>
+                        <p>Implementation of digital systems to improve service delivery and citizen engagement.</p>
+                        <a href="#" class="btn">View Details</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- STATISTICS SECTION -->
+    <section class="stats">
+        <div class="container">
+            <div class="section-title">
+                <h2 style="color: white;">Our Impact in Numbers</h2>
+                <p style="color: #ccc;">Measuring our progress and impact on the city of Kampala</p>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">2.5M+</div>
+                    <div class="stat-label">Residents Served</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">150+</div>
+                    <div class="stat-label">Projects Completed</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">98%</div>
+                    <div class="stat-label">Service Satisfaction</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">25</div>
+                    <div class="stat-label">Divisions Covered</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PARTNERS SECTION -->
+    <section class="partners">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Partners</h2>
+                <p>We collaborate with various organizations to deliver quality services to Kampala residents</p>
+            </div>
+            <div class="partners-grid">
+                <div class="partner-logo">
+                    <img src="https://via.placeholder.com/150x80/0056a6/ffffff?text=UNDP" alt="Partner Logo">
+                </div>
+                <div class="partner-logo">
+                    <img src="https://via.placeholder.com/150x80/0056a6/ffffff?text=World+Bank" alt="Partner Logo">
+                </div>
+                <div class="partner-logo">
+                    <img src="https://via.placeholder.com/150x80/0056a6/ffffff?text=EU" alt="Partner Logo">
+                </div>
+                <div class="partner-logo">
+                    <img src="https://via.placeholder.com/150x80/0056a6/ffffff?text=USAID" alt="Partner Logo">
+                </div>
+                <div class="partner-logo">
+                    <img src="https://via.placeholder.com/150x80/0056a6/ffffff?text=JICA" alt="Partner Logo">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>About KCCA</h3>
+                    <p>Kampala Capital City Authority is responsible for the operations of the capital city of Kampala in Uganda.</p>
+                    <div class="social-links" style="margin-top: 20px;">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="#">Projects</a></li>
+                        <li><a href="#">Media Center</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Business Licensing</a></li>
+                        <li><a href="#">Building Permits</a></li>
+                        <li><a href="#">Revenue Collection</a></li>
+                        <li><a href="#">Waste Management</a></li>
+                        <li><a href="#">Public Health</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact Us</h3>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-map-marker-alt"></i> City Hall, Kampala Road</li>
+                        <li><i class="fas fa-phone"></i> +256 414 231 200</li>
+                        <li><i class="fas fa-envelope"></i> info@kcca.go.ug</li>
+                        <li><i class="fas fa-clock"></i> Mon-Fri: 8:00AM - 5:00PM</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2023 Kampala Capital City Authority. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu functionality
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            document.querySelector('.main-nav').classList.toggle('active');
+        });
+
+        // Dropdown functionality for mobile
+        const dropdowns = document.querySelectorAll('.dropdown');
+        dropdowns.forEach(dropdown => {
+            dropdown.addEventListener('click', function(e) {
+                if (window.innerWidth <= 768) {
+                    e.preventDefault();
+                    this.classList.toggle('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
