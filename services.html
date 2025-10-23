@@ -1,0 +1,1133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kayunga Town Council - Services</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary: #1e3a8a;
+            --primary-light: #3b82f6;
+            --secondary: #f59e0b;
+            --secondary-light: #fbbf24;
+            --accent: #dc2626;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --gray: #64748b;
+            --white: #ffffff;
+        }
+
+        body {
+            background-color: #f1f5f9;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background: var(--primary);
+            color: white;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn:hover {
+            background: var(--primary-light);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-secondary {
+            background: var(--secondary);
+            color: var(--dark);
+        }
+
+        .btn-secondary:hover {
+            background: var(--secondary-light);
+        }
+
+        /* Header Styles */
+        .header-top {
+            background: var(--primary);
+            color: white;
+            padding: 10px 0;
+            font-size: 14px;
+        }
+
+        .header-top .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-top .contact-info span {
+            margin-right: 20px;
+        }
+
+        .social-links a {
+            margin-left: 15px;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: var(--secondary);
+        }
+
+        .header-main {
+            background: var(--white);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-main .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 60px;
+            margin-right: 15px;
+        }
+
+        .logo-text h1 {
+            font-size: 24px;
+            color: var(--primary);
+            line-height: 1.2;
+        }
+
+        .logo-text span {
+            font-size: 14px;
+            color: var(--gray);
+        }
+
+        .search-box {
+            display: flex;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .search-box input {
+            padding: 10px 15px;
+            border: none;
+            width: 250px;
+            font-size: 14px;
+        }
+
+        .search-box button {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 0 18px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .search-box button:hover {
+            background: var(--primary-light);
+        }
+
+        .main-nav {
+            background: var(--primary);
+        }
+
+        .main-nav .container {
+            position: relative;
+        }
+
+        .main-nav ul {
+            display: flex;
+        }
+
+        .main-nav li {
+            position: relative;
+        }
+
+        .main-nav a {
+            color: white;
+            padding: 16px 22px;
+            display: block;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .main-nav a:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            background: var(--white);
+            min-width: 220px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            display: none;
+            z-index: 100;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .dropdown-menu a {
+            color: var(--dark);
+            border-bottom: 1px solid #f1f5f9;
+            padding: 12px 18px;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: var(--primary);
+            cursor: pointer;
+        }
+
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none"><path d="M0,0 V100 H1000 V0 Z" fill="rgba(255,255,255,0.1)"/></svg>');
+            background-size: cover;
+        }
+
+        .page-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .page-header p {
+            font-size: 18px;
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        /* Services Section */
+        .services-section {
+            padding: 80px 0;
+            background: var(--white);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 36px;
+            color: var(--primary);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--secondary);
+            border-radius: 2px;
+        }
+
+        .section-title p {
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 16px;
+        }
+
+        .services-categories {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 50px;
+        }
+
+        .category-btn {
+            padding: 12px 24px;
+            background: var(--light);
+            border: 1px solid #e2e8f0;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+
+        .category-btn.active, .category-btn:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border: 1px solid #f1f5f9;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .service-header {
+            padding: 25px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            display: flex;
+            align-items: center;
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 24px;
+        }
+
+        .service-content {
+            padding: 25px;
+        }
+
+        .service-content h3 {
+            margin-bottom: 15px;
+            color: var(--primary);
+            font-size: 20px;
+        }
+
+        .service-features {
+            margin: 20px 0;
+        }
+
+        .service-features li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .service-features i {
+            color: var(--secondary);
+            margin-right: 10px;
+            font-size: 14px;
+        }
+
+        .service-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        /* Quick Services */
+        .quick-services {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+        }
+
+        .quick-services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .quick-service-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 35px 25px;
+            text-align: center;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s;
+            border: 1px solid #f1f5f9;
+        }
+
+        .quick-service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
+        }
+
+        .quick-service-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: white;
+            font-size: 28px;
+            box-shadow: 0 6px 12px rgba(30, 58, 138, 0.2);
+        }
+
+        .quick-service-card h3 {
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 80px 0;
+            background: var(--white);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .contact-item i {
+            color: var(--primary);
+            margin-right: 15px;
+            font-size: 22px;
+            margin-top: 5px;
+        }
+
+        .contact-form {
+            background: var(--light);
+            padding: 35px;
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--dark);
+        }
+
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border 0.3s;
+        }
+
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.1);
+        }
+
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--dark);
+            color: white;
+            padding: 70px 0 0;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .footer-col h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--secondary);
+            border-radius: 2px;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #cbd5e1;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary);
+        }
+
+        .contact-info li {
+            display: flex;
+            margin-bottom: 15px;
+        }
+
+        .contact-info i {
+            margin-right: 10px;
+            color: var(--secondary);
+        }
+
+        .footer-bottom {
+            background: #0f172a;
+            padding: 25px 0;
+            text-align: center;
+            color: #94a3b8;
+            font-size: 14px;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .header-main .container {
+                flex-wrap: wrap;
+            }
+            
+            .logo {
+                margin-bottom: 15px;
+            }
+            
+            .search-box {
+                width: 100%;
+                margin-top: 15px;
+            }
+            
+            .search-box input {
+                width: 100%;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .main-nav {
+                display: none;
+            }
+            
+            .main-nav.active {
+                display: block;
+            }
+            
+            .main-nav ul {
+                flex-direction: column;
+            }
+            
+            .dropdown-menu {
+                position: static;
+                box-shadow: none;
+                background: rgba(255, 255, 255, 0.1);
+            }
+            
+            .page-header h1 {
+                font-size: 36px;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .header-top .container {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .social-links {
+                margin-top: 5px;
+            }
+            
+            .header-top .contact-info span {
+                display: block;
+                margin-bottom: 5px;
+            }
+            
+            .section-title h2 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header-top">
+        <div class="container">
+            <div class="contact-info">
+                <span><i class="fas fa-phone"></i> +256 392 123 456</span>
+                <span><i class="fas fa-envelope"></i> info@kayungatc.go.ug</span>
+            </div>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <header class="header-main">
+        <div class="container">
+            <div class="logo">
+                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgZmlsbD0iIzFlM2E4YSIvPjxjaXJjbGUgY3g9IjUwIiBjeT0iNTAiIHI9IjMwIiBmaWxsPSIjZjU5ZTBiIi8+PHBhdGggZD0iTTQwIDQwIEw2MCA0MCBMNjAgNjAgTDQwIDYwIFoiIGZpbGw9IiMxZTNhOGEiLz48L3N2Zz4=" alt="Kayunga TC Logo">
+                <div class="logo-text">
+                    <h1>KAYUNGA TOWN COUNCIL</h1>
+                    <span>Service Excellence for Community Development</span>
+                </div>
+            </div>
+            <div class="search-box">
+                <input type="text" placeholder="Search services...">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <nav class="main-nav">
+        <div class="container">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li class="dropdown">
+                    <a href="#">Services <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="#revenue">Revenue Collection</a>
+                        <a href="#planning">Physical Planning</a>
+                        <a href="#health">Public Health</a>
+                        <a href="#education">Education</a>
+                        <a href="#community">Community Development</a>
+                    </div>
+                </li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="news.html">News & Updates</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="page-header">
+        <div class="container">
+            <h1>Our Services</h1>
+            <p>Kayunga Town Council offers a wide range of services to residents, businesses, and visitors. Explore our service categories below.</p>
+        </div>
+    </section>
+
+    <section class="services-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Service Categories</h2>
+                <p>Browse our comprehensive range of municipal services organized by category</p>
+            </div>
+            
+            <div class="services-categories">
+                <button class="category-btn active" data-category="all">All Services</button>
+                <button class="category-btn" data-category="revenue">Revenue Collection</button>
+                <button class="category-btn" data-category="planning">Physical Planning</button>
+                <button class="category-btn" data-category="health">Public Health</button>
+                <button class="category-btn" data-category="education">Education</button>
+                <button class="category-btn" data-category="community">Community Development</button>
+                <button class="category-btn" data-category="environment">Environment</button>
+                <button class="category-btn" data-category="infrastructure">Infrastructure</button>
+            </div>
+            
+            <div class="services-grid">
+                <!-- Revenue Collection Services -->
+                <div class="service-card" data-category="revenue">
+                    <div class="service-header">
+                        <div class="service-icon">
+                            <i class="fas fa-money-bill-wave"></i>
+                        </div>
+                        <h3>Revenue Collection</h3>
+                    </div>
+                    <div class="service-content">
+                        <p>Efficient collection of local taxes, fees, and other revenue sources to fund municipal services.</p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i> Local Service Tax Collection</li>
+                            <li><i class="fas fa-check"></i> Property Rate Collection</li>
+                            <li><i class="fas fa-check"></i> Business License Fees</li>
+                            <li><i class="fas fa-check"></i> Market Fees Collection</li>
+                        </ul>
+                        <div class="service-actions">
+                            <a href="#" class="btn">Learn More</a>
+                            <a href="#" class="btn btn-secondary">Apply Online</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Physical Planning Services -->
+                <div class="service-card" data-category="planning">
+                    <div class="service-header">
+                        <div class="service-icon">
+                            <i class="fas fa-drafting-compass"></i>
+                        </div>
+                        <h3>Physical Planning</h3>
+                    </div>
+                    <div class="service-content">
+                        <p>Regulation and approval of construction and development activities within the municipality.</p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i> Building Plan Approval</li>
+                            <li><i class="fas fa-check"></i> Land Subdivision Approval</li>
+                            <li><i class="fas fa-check"></i> Development Control</li>
+                            <li><i class="fas fa-check"></i> Zoning Regulations</li>
+                        </ul>
+                        <div class="service-actions">
+                            <a href="#" class="btn">Learn More</a>
+                            <a href="#" class="btn btn-secondary">Apply Online</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Public Health Services -->
+                <div class="service-card" data-category="health">
+                    <div class="service-header">
+                        <div class="service-icon">
+                            <i class="fas fa-clinic-medical"></i>
+                        </div>
+                        <h3>Public Health</h3>
+                    </div>
+                    <div class="service-content">
+                        <p>Ensuring public health standards through sanitation, hygiene, and disease prevention programs.</p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i> Sanitation Inspection</li>
+                            <li><i class="fas fa-check"></i> Food Safety Control</li>
+                            <li><i class="fas fa-check"></i> Waste Management</li>
+                            <li><i class="fas fa-check"></i> Public Health Education</li>
+                        </ul>
+                        <div class="service-actions">
+                            <a href="#" class="btn">Learn More</a>
+                            <a href="#" class="btn btn-secondary">Request Service</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Education Services -->
+                <div class="service-card" data-category="education">
+                    <div class="service-header">
+                        <div class="service-icon">
+                            <i class="fas fa-school"></i>
+                        </div>
+                        <h3>Education Services</h3>
+                    </div>
+                    <div class="service-content">
+                        <p>Management and support of educational institutions and programs within the municipality.</p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i> Primary School Management</li>
+                            <li><i class="fas fa-check"></i> Early Childhood Centers</li>
+                            <li><i class="fas fa-check"></i> Adult Literacy Programs</li>
+                            <li><i class="fas fa-check"></i> School Infrastructure</li>
+                        </ul>
+                        <div class="service-actions">
+                            <a href="#" class="btn">Learn More</a>
+                            <a href="#" class="btn btn-secondary">Enroll Now</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Community Development -->
+                <div class="service-card" data-category="community">
+                    <div class="service-header">
+                        <div class="service-icon">
+                            <i class="fas fa-hands-helping"></i>
+                        </div>
+                        <h3>Community Development</h3>
+                    </div>
+                    <div class="service-content">
+                        <p>Programs and initiatives to empower communities and promote social welfare.</p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i> Youth Development</li>
+                            <li><i class="fas fa-check"></i> Women Empowerment</li>
+                            <li><i class="fas fa-check"></i> Social Welfare Services</li>
+                            <li><i class="fas fa-check"></i> Poverty Alleviation</li>
+                        </ul>
+                        <div class="service-actions">
+                            <a href="#" class="btn">Learn More</a>
+                            <a href="#" class="btn btn-secondary">Get Involved</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Environmental Protection -->
+                <div class="service-card" data-category="environment">
+                    <div class="service-header">
+                        <div class="service-icon">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <h3>Environmental Protection</h3>
+                    </div>
+                    <div class="service-content">
+                        <p>Conservation and protection of the environment through various programs and regulations.</p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i> Environmental Conservation</li>
+                            <li><i class="fas fa-check"></i> Tree Planting Programs</li>
+                            <li><i class="fas fa-check"></i> Wetland Protection</li>
+                            <li><i class="fas fa-check"></i> Pollution Control</li>
+                        </ul>
+                        <div class="service-actions">
+                            <a href="#" class="btn">Learn More</a>
+                            <a href="#" class="btn btn-secondary">Report Issue</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Infrastructure Services -->
+                <div class="service-card" data-category="infrastructure">
+                    <div class="service-header">
+                        <div class="service-icon">
+                            <i class="fas fa-road"></i>
+                        </div>
+                        <h3>Infrastructure Development</h3>
+                    </div>
+                    <div class="service-content">
+                        <p>Development and maintenance of municipal infrastructure including roads, water, and public facilities.</p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i> Road Maintenance</li>
+                            <li><i class="fas fa-check"></i> Drainage Construction</li>
+                            <li><i class="fas fa-check"></i> Street Lighting</li>
+                            <li><i class="fas fa-check"></i> Public Space Development</li>
+                        </ul>
+                        <div class="service-actions">
+                            <a href="#" class="btn">Learn More</a>
+                            <a href="#" class="btn btn-secondary">Report Issue</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Water and Sanitation -->
+                <div class="service-card" data-category="infrastructure">
+                    <div class="service-header">
+                        <div class="service-icon">
+                            <i class="fas fa-tint"></i>
+                        </div>
+                        <h3>Water & Sanitation</h3>
+                    </div>
+                    <div class="service-content">
+                        <p>Provision of clean water and sanitation facilities to residents and businesses.</p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i> Public Water Points</li>
+                            <li><i class="fas fa-check"></i> Water Source Protection</li>
+                            <li><i class="fas fa-check"></i> Borehole Maintenance</li>
+                            <li><i class="fas fa-check"></i> Sanitation Facilities</li>
+                        </ul>
+                        <div class="service-actions">
+                            <a href="#" class="btn">Learn More</a>
+                            <a href="#" class="btn btn-secondary">Request Service</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="quick-services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Quick Services</h2>
+                <p>Frequently accessed services for your convenience</p>
+            </div>
+            
+            <div class="quick-services-grid">
+                <div class="quick-service-card">
+                    <div class="quick-service-icon">
+                        <i class="fas fa-file-invoice-dollar"></i>
+                    </div>
+                    <h3>Pay Bills Online</h3>
+                    <p>Convenient online payment for taxes, fees, and other municipal charges.</p>
+                    <a href="#" class="btn" style="margin-top: 15px;">Pay Now</a>
+                </div>
+                
+                <div class="quick-service-card">
+                    <div class="quick-service-icon">
+                        <i class="fas fa-clipboard-list"></i>
+                    </div>
+                    <h3>Apply for Permits</h3>
+                    <p>Submit applications for business licenses, building permits, and other approvals.</p>
+                    <a href="#" class="btn" style="margin-top: 15px;">Apply Now</a>
+                </div>
+                
+                <div class="quick-service-card">
+                    <div class="quick-service-icon">
+                        <i class="fas fa-tasks"></i>
+                    </div>
+                    <h3>Service Requests</h3>
+                    <p>Report issues or request municipal services like waste collection or road repairs.</p>
+                    <a href="#" class="btn" style="margin-top: 15px;">Submit Request</a>
+                </div>
+                
+                <div class="quick-service-card">
+                    <div class="quick-service-icon">
+                        <i class="fas fa-download"></i>
+                    </div>
+                    <h3>Download Forms</h3>
+                    <p>Access application forms, guidelines, and other important documents.</p>
+                    <a href="#" class="btn" style="margin-top: 15px;">View Downloads</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Need Assistance?</h2>
+                <p>Contact our service departments for inquiries and support</p>
+            </div>
+            
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Visit Us</h4>
+                            <p>Kayunga Town Council Headquarters<br>Main Street, Kayunga Municipality</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Call Us</h4>
+                            <p>+256 392 123 456<br>+256 392 123 457</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email Us</h4>
+                            <p>info@kayungatc.go.ug<br>services@kayungatc.go.ug</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h4>Working Hours</h4>
+                            <p>Monday - Friday: 8:00 AM - 5:00 PM<br>Saturday: 9:00 AM - 1:00 PM</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <h3>Send Us a Message</h3>
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="service">Service Category</label>
+                            <select id="service" required>
+                                <option value="">Select a service</option>
+                                <option value="revenue">Revenue Collection</option>
+                                <option value="planning">Physical Planning</option>
+                                <option value="health">Public Health</option>
+                                <option value="education">Education</option>
+                                <option value="community">Community Development</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>About Kayunga TC</h3>
+                    <p>Kayunga Town Council is committed to providing quality services to residents and promoting sustainable development in the municipality.</p>
+                    <div class="social-links" style="margin-top: 20px;">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="news.html">News & Updates</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="#revenue">Revenue Collection</a></li>
+                        <li><a href="#planning">Physical Planning</a></li>
+                        <li><a href="#health">Public Health</a></li>
+                        <li><a href="#education">Education</a></li>
+                        <li><a href="#community">Community Development</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact Us</h3>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-map-marker-alt"></i> Kayunga Town Council Headquarters</li>
+                        <li><i class="fas fa-phone"></i> +256 392 123 456</li>
+                        <li><i class="fas fa-envelope"></i> info@kayungatc.go.ug</li>
+                        <li><i class="fas fa-clock"></i> Mon-Fri: 8:00AM - 5:00PM</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2023 Kayunga Town Council. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu functionality
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            document.querySelector('.main-nav').classList.toggle('active');
+        });
+
+        // Service category filtering
+        const categoryButtons = document.querySelectorAll('.category-btn');
+        const serviceCards = document.querySelectorAll('.service-card');
+        
+        categoryButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                // Remove active class from all buttons
+                categoryButtons.forEach(btn => btn.classList.remove('active'));
+                
+                // Add active class to clicked button
+                this.classList.add('active');
+                
+                const category = this.getAttribute('data-category');
+                
+                // Show/hide service cards based on category
+                serviceCards.forEach(card => {
+                    if (category === 'all' || card.getAttribute('data-category') === category) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Dropdown functionality for mobile
+        const dropdowns = document.querySelectorAll('.dropdown');
+        dropdowns.forEach(dropdown => {
+            dropdown.addEventListener('click', function(e) {
+                if (window.innerWidth <= 768) {
+                    e.preventDefault();
+                    this.classList.toggle('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
