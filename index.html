@@ -1,860 +1,131 @@
-Ff<!DOCTYPE html>
+
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kayunga Town Council</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        :root {
-            --primary: #0056a6;
-            --secondary: #ffcc00;
-            --accent: #e63946;
-            --dark: #333;
-            --light: #f8f9fa;
-            --gray: #6c757d;
-        }
-
-        body {
-            background-color: #f5f5f5;
-            color: var(--dark);
-            line-height: 1.6;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        ul {
-            list-style: none;
-        }
-
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 15px;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 10px 20px;
-            background: var(--primary);
-            color: white;
-            border-radius: 4px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-        }
-
-        .btn:hover {
-            background: #003d7a;
-            transform: translateY(-2px);
-        }
-
-        .btn-secondary {
-            background: var(--secondary);
-            color: var(--dark);
-        }
-
-        .btn-secondary:hover {
-            background: #e6b800;
-        }
-
-        .header-top {
-            background: var(--primary);
-            color: white;
-            padding: 8px 0;
-            font-size: 14px;
-        }
-
-        .header-top .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .social-links a {
-            margin-left: 15px;
-            font-size: 16px;
-            transition: color 0.3s;
-        }
-
-        .social-links a:hover {
-            color: var(--secondary);
-        }
-
-        .header-main {
-            background: white;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .header-main .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-        }
-
-        .logo img {
-            height: 60px;
-            margin-right: 10px;
-        }
-
-        .logo-text h1 {
-            font-size: 24px;
-            color: var(--primary);
-            line-height: 1.2;
-        }
-
-        .logo-text span {
-            font-size: 14px;
-            color: var(--gray);
-        }
-
-        .search-box {
-            display: flex;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            overflow: hidden;
-        }
-
-        .search-box input {
-            padding: 8px 12px;
-            border: none;
-            width: 250px;
-        }
-
-        .search-box button {
-            background: var(--primary);
-            color: white;
-            border: none;
-            padding: 0 15px;
-            cursor: pointer;
-        }
-
-        .main-nav {
-            background: var(--primary);
-        }
-
-        .main-nav .container {
-            position: relative;
-        }
-
-        .main-nav ul {
-            display: flex;
-        }
-
-        .main-nav li {
-            position: relative;
-        }
-
-        .main-nav a {
-            color: white;
-            padding: 15px 20px;
-            display: block;
-            font-weight: 500;
-            transition: background 0.3s;
-        }
-
-        .main-nav a:hover {
-            background: rgba(255,255,255,0.1);
-        }
-
-        .dropdown-menu {
-            position: absolute;
-            background: white;
-            min-width: 200px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            display: none;
-            z-index: 100;
-        }
-
-        .dropdown-menu a {
-            color: var(--dark);
-            border-bottom: 1px solid #eee;
-        }
-
-        .dropdown:hover .dropdown-menu {
-            display: block;
-        }
-
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 24px;
-            color: var(--primary);
-            cursor: pointer;
-        }
-
-        .hero {
-            position: relative;
-            height: 500px;
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1566400308809-29e3e0c6e70d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            display: flex;
-            align-items: center;
-        }
-
-        .hero-content {
-            max-width: 600px;
-            padding: 0 20px;
-        }
-
-        .hero h2 {
-            font-size: 42px;
-            margin-bottom: 20px;
-            line-height: 1.2;
-        }
-
-        .hero p {
-            font-size: 18px;
-            margin-bottom: 30px;
-        }
-
-        .services {
-            padding: 60px 0;
-            background: white;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
-        .section-title h2 {
-            font-size: 32px;
-            color: var(--primary);
-            margin-bottom: 10px;
-        }
-
-        .section-title p {
-            color: var(--gray);
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-        }
-
-        .service-card {
-            background: var(--light);
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            transition: transform 0.3s;
-        }
-
-        .service-card:hover {
-            transform: translateY(-10px);
-        }
-
-        .service-icon {
-            height: 80px;
-            background: var(--primary);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 32px;
-        }
-
-        .service-content {
-            padding: 25px;
-        }
-
-        .service-content h3 {
-            margin-bottom: 15px;
-            color: var(--primary);
-        }
-
-        .news {
-            padding: 60px 0;
-            background: var(--light);
-        }
-
-        .news-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .news-card {
-            background: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-        }
-
-        .news-img {
-            height: 200px;
-            background: #ddd;
-            overflow: hidden;
-        }
-
-        .news-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s;
-        }
-
-        .news-card:hover .news-img img {
-            transform: scale(1.05);
-        }
-
-        .news-content {
-            padding: 20px;
-        }
-
-        .news-date {
-            color: var(--gray);
-            font-size: 14px;
-            margin-bottom: 10px;
-        }
-
-        .news-content h3 {
-            margin-bottom: 10px;
-            color: var(--primary);
-        }
-
-        .news-content p {
-            margin-bottom: 15px;
-            color: var(--gray);
-        }
-
-        .quick-links {
-            padding: 60px 0;
-            background: white;
-        }
-
-        .links-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
-        }
-
-        .link-card {
-            background: var(--light);
-            padding: 30px;
-            border-radius: 8px;
-            text-align: center;
-            transition: all 0.3s;
-        }
-
-        .link-card:hover {
-            background: var(--primary);
-            color: white;
-            transform: translateY(-5px);
-        }
-
-        .link-card i {
-            font-size: 40px;
-            margin-bottom: 15px;
-            color: var(--primary);
-        }
-
-        .link-card:hover i {
-            color: white;
-        }
-
-        .footer {
-            background: var(--dark);
-            color: white;
-            padding: 60px 0 0;
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-
-        .footer-col h3 {
-            font-size: 20px;
-            margin-bottom: 20px;
-            position: relative;
-            padding-bottom: 10px;
-        }
-
-        .footer-col h3::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            width: 50px;
-            height: 2px;
-            background: var(--secondary);
-        }
-
-        .footer-links li {
-            margin-bottom: 10px;
-        }
-
-        .footer-links a {
-            color: #bbb;
-            transition: color 0.3s;
-        }
-
-        .footer-links a:hover {
-            color: var(--secondary);
-        }
-
-        .contact-info li {
-            display: flex;
-            margin-bottom: 15px;
-        }
-
-        .contact-info i {
-            margin-right: 10px;
-            color: var(--secondary);
-        }
-
-        .footer-bottom {
-            background: #222;
-            padding: 20px 0;
-            text-align: center;
-            color: #bbb;
-            font-size: 14px;
-        }
-
-        /* Mobile Responsiveness */
-        @media (max-width: 768px) {
-            .header-main .container {
-                flex-wrap: wrap;
-            }
-            
-            .logo {
-                margin-bottom: 15px;
-            }
-            
-            .search-box {
-                width: 100%;
-                margin-top: 15px;
-            }
-            
-            .search-box input {
-                width: 100%;
-            }
-            
-            .mobile-menu-btn {
-                display: block;
-            }
-            
-            .main-nav {
-                display: none;
-            }
-            
-            .main-nav.active {
-                display: block;
-            }
-            
-            .main-nav ul {
-                flex-direction: column;
-            }
-            
-            .dropdown-menu {
-                position: static;
-                box-shadow: none;
-                background: rgba(255,255,255,0.1);
-            }
-            
-            .hero {
-                height: 400px;
-            }
-            
-            .hero h2 {
-                font-size: 30px;
-            }
-            
-            .header-top .container {
-                flex-direction: column;
-                gap: 10px;
-            }
-            
-            .social-links {
-                margin-top: 5px;
-            }
-        }
-    </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>About Kayunga Town Council</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-    <!-- Top Header -->
-    <div class="header-top">
-        <div class="container">
-            <div class="contact-info">
-                <span><i class="fas fa-phone"></i> +256 414 231 200</span>
-                <span style="margin-left: 20px;"><i class="fas fa-envelope"></i> tckayunga@yahoo.com</span>
-            </div>
-            <div class="social-links">
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-youtube"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-            </div>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <div class="logo">KTC</div>
+        <div>
+          <h1 class="brand-title">Kayunga Town Council</h1>
+          <p class="tagline">Advancing Together for a Greater Kayunga</p>
         </div>
+      </div>
+      <nav class="nav">
+        <a href="#about">About</a>
+        <a href="#programs">Programs</a>
+        <a href="#leadership">Leadership</a>
+        <a class="cta" href="#contact">Get Involved</a>
+      </nav>
     </div>
+  </header>
 
-    <!-- Main Header -->
-    <header class="header-main">
-        <div class="container">
-            <div class="logo">
-                <img src="national-coat-of-arms-of-the-republic-of-uganda-DTK91D.jpg">
-                <div class="logo-text">
-                    <h1>KAYUNGA TOWN COUNCIL</h1>
-                    <span>Advancing Together for a Greater Kayunga</span>
-                </div>
-            </div>
-            <div class="search-box">
-                <input type="text" placeholder="Search...">
-                <button><i class="fas fa-search"></i></button>
-            </div>
-            <button class="mobile-menu-btn">
-                <i class="fas fa-bars"></i>
-            </button>
-        </div>
-    </header>
-
-    <!-- Navigation -->
-    <nav class="main-nav">
-        <div class="container">
-            <ul>
-                <li><a href="ALTERNATIVE.html">Home</a></li>
-                <li class="dropdown">
-                    <a href="#">About KTC <i class="fas fa-chevron-down"></i></a>
-                    <div class="dropdown-menu">
-                        <a href="#">Our Vision & Mission</a>
-                        <a href="#">Leadership</a>
-                        <a href="#">Departments</a>
-                    </div>
-                </li>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">Projects</a></li>
-                <li><a href="#">Media Center</a></li>
-                <li><a href="#">Tenders</a></li>
-                <li><a href="#">Careers</a></li>
-                <li><a href="#">Contact Us</a></li>
-            </ul>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
+  <main>
     <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h2>MISSION</h2>
-                <p>Building a Clean, Connected, and Empowered Kayunga</p>
-                <a href="#" class="btn btn-secondary">Learn More</a>
-            </div>
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <h2>About Kayunga Town Council (KTC)</h2>
+          <p>KTC works to deliver clean roads, sustainable development and community empowerment. Below is a short video summary — replace this with your official recording.</p>
+          <div class="hero-actions">
+            <a class="btn btn-outline" href="#programs">Our Programs</a>
+            <a class="btn btn-accent" href="#contact">Volunteer / Donate</a>
+          </div>
+          <ul class="key-values">
+            <li><strong>Mission</strong><div>To create clean, safe and progressive urban centers.</div></li>
+            <li><strong>Vision</strong><div>A thriving municipality with inclusive services and strong infrastructure.</div></li>
+            <li><strong>Values</strong><div>Integrity • Service • Community</div></li>
+          </ul>
         </div>
+
+        <div class="hero-video">
+          <div class="video-card">
+            <!-- Replace source with your MP4 file named ktc-about.mp4 inside /assets -->
+            <video controls poster="assets/ktc-about-poster.jpg" class="video-player">
+              <source src="assets/ktc-about.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+            <div class="video-meta">Narrated overview — 01:42</div>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <!-- Services Section -->
-    <section class="services">
-        <div class="container">
-            <div class="section-title">
-                <h2>Our Services</h2>
-                <p>We provide a wide range of services to residents, businesses and visitors in Kayunga</p>
-            </div>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-home"></i>
-                    </div>
-                    <div class="service-content">
-                        <h3>Property Rates</h3>
-                        <p>Pay your property rates online.</p>
-                        <a href="#" class="btn">Learn More</a>
-                    </div>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-trash"></i>
-                    </div>
-                    <div class="service-content">
-                        <h3>Waste Management</h3>
-                        <p>Report waste management issues and learn about our garbage collection schedule.</p>
-                        <a href="#" class="btn">Learn More</a>
-                    </div>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-road"></i>
-                    </div>
-                    <div class="service-content">
-                        <h3>Road Infrastructure</h3>
-                        <p>Information on road construction and maintenance </p>
-                        <a href="#" class="btn">Learn More</a>
-                    </div>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-file-contract"></i>
-                    </div>
-                    <div class="service-content">
-                        <h3>Business Licensing</h3>
-                        <p>Apply for business licenses, trading permits and other commercial approvals.</p>
-                        <a href="#" class="btn">Learn More</a>
-                    </div>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-graduation-cap"></i>
-                    </div>
-                    <div class="service-content">
-                        <h3>Education Services</h3>
-                        <p>Information about public schools, adult education and vocational training programs.</p>
-                        <a href="#" class="btn">Learn More</a>
-                    </div>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-clinic-medical"></i>
-                    </div>
-                    <div class="service-content">
-                        <h3>Public Health</h3>
-                        <p>Public health services, sanitation programs and disease prevention initiatives.</p>
-                        <a href="#" class="btn">Learn More</a>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <section id="about" class="container section">
+      <h3>Our Story</h3>
+      <p>A short timeline summarising KTC's milestones and achievements. Replace the entries below with real dates and events.</p>
+      <ol class="timeline">
+        <li><span class="badge">2015</span><div><strong>Formation and early planning</strong><p>KTC was established to coordinate town services and infrastructure projects.</p></div></li>
+        <li><span class="badge">2019</span><div><strong>Road rehabilitation program</strong><p>Major roads were upgraded and drainage improved.</p></div></li>
+        <li><span class="badge">2024</span><div><strong>Community empowerment initiatives</strong><p>Skills training and small-business grants launched.</p></div></li>
+      </ol>
     </section>
 
-    <!-- News Section -->
-    <section class="news">
-        <div class="container">
-            <div class="section-title">
-                <h2>Latest News & Updates</h2>
-                <p>Stay informed with the latest developments and announcements from Kayunga Town Council</p>
-            </div>
-            <div class="news-grid">
-                <div class="news-card">
-                    <div class="news-img">
-                        <video src ="snaptik_7304407403775266053_hd (2).mp4"></video>
-                    </div>
-                    <div class="news-content">
-                        <div class="news-date">June 15, 2023</div>
-                        <h3>KAYUNGA TOWN COUNCIL FESTIVAL</h3>
-                        <p>Coming soon watch the space.</p>
-                        <a href="#" class="btn">Read More</a>
-                    </div>
-                </div>
-                <div class="news-card">
-                    <div class="news-img">
-                        <img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="Waste Management">
-                    </div>
-                    <div class="news-content">
-                        <div class="news-date">June 10, 2023</div>
-                        <h3>Waste Collection Schedule for Kayunga Town Council</h3>
-                        <p>Know when garbage is collected </p>
-                        <a href="#" class="btn">Read More</a>
-                    </div>
-                </div>
-                <div class="news-card">
-                    <div class="news-img">
-                        <img src="https://images.unsplash.com/photo-1551836026-d5c8c1d23150?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="Business Registration">
-                    </div>
-                    <div class="news-content">
-                        <div class="news-date">June 5, 2023</div>
-                        <h3>Streamlined Business Licensing Process Launched</h3>
-                        <p>Learn more about the online portal (IRAS) for business registration and licensing to reduce processing time.</p>
-                        <a href="#" class="btn">Read More</a>
-                    </div>
-                </div>
-            </div>
+    <section id="programs" class="section alt-bg">
+      <div class="container">
+        <h3>Programs & Services</h3>
+        <p>How KTC serves the community — replace with video highlights.</p>
+        <div class="grid cards">
+          <div class="card"><h4>Roads & Drainage</h4><p>Planned improvements and maintenance.</p></div>
+          <div class="card"><h4>Waste Management</h4><p>Collection, awareness and recycling.</p></div>
+          <div class="card"><h4>Community Health</h4><p>Public health outreach and sanitation.</p></div>
+          <div class="card"><h4>Business Support</h4><p>Training and small grants.</p></div>
         </div>
+      </div>
     </section>
 
-    <!-- Quick Links Section -->
-    <section class="quick-links">
-        <div class="container">
-            <div class="section-title">
-                <h2>Quick Access</h2>
-                <p>Easy access to frequently used services and information</p>
-            </div>
-            <div class="links-grid">
-                <div class="link-card">
-                    <i class="fas fa-file-invoice-dollar"></i>
-                    <h3>Pay Bills</h3>
-                </div>
-                <div class="link-card">
-                    <i class="fas fa-download"></i>
-                    <h3>Download Forms</h3>
-                </div>
-                <div class="link-card">
-                    <i class="fas fa-calendar-alt"></i>
-                    <h3>Events Calendar</h3>
-                </div>
-                <div class="link-card">
-                    <i class="fas fa-map-marked-alt"></i>
-                    <h3>City Maps</h3>
-                </div>
-                <div class="link-card">
-                    <i class="fas fa-newspaper"></i>
-                    <h3>Publications</h3>
-                </div>
-                <div class="link-card">
-                    <i class="fas fa-hands-helping"></i>
-                    <h3>Report Issues</h3>
-                </div>
-            </div>
-        </div>
+    <section id="leadership" class="container section">
+      <h3>Leadership</h3>
+      <p>Introduce the council leaders and key officers.</p>
+      <div class="grid leaders">
+        <div class="leader"><div class="avatar">Img</div><strong>Chairperson</strong><p>Short bio or quote — 1–2 lines.</p></div>
+        <div class="leader"><div class="avatar">Img</div><strong>Town Clerk</strong><p>Short bio or quote — 1–2 lines.</p></div>
+        <div class="leader"><div class="avatar">Img</div><strong>Engineering Lead</strong><p>Short bio or quote — 1–2 lines.</p></div>
+        <div class="leader"><div class="avatar">Img</div><strong>Community Officer</strong><p>Short bio or quote — 1–2 lines.</p></div>
+      </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col">
-                    <h3>Quick Links</h3>
-                    <ul class="footer-links">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="aboutus.html">About US</a></li>
-                        <li><a href="#">Services</a></li>
-                        <li><a href="#">Projects</a></li>
-                        <li><a href="#">Media Center</a></li>
-                        <li><a href="#">Tenders</a></li>
-                        <li><a href="#">Careers</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h3>Our Services</h3>
-                    <ul class="footer-links">
-                        <li><a href="#">Property Rates</a></li>
-                        <li><a href="#">Business Licensing</a></li>
-                        <li><a href="#">Waste Management</a></li>
-                        <li><a href="#">Road Infrastructure</a></li>
-                        <li><a href="#">Public Health</a></li>
-                        <li><a href="#">Education</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h3>Contact Us</h3>
-                    <ul class="contact-info">
-                        <li>
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>Plot 1-3 Mumyuka Road, Kayunga, Uganda</span>
-                        </li>
-                        <li>
-                            <i class="fas fa-phone"></i>
-                            <span>+256 414 231 200</span>
-                        </li>
-                        <li>
-                            <i class="fas fa-envelope"></i>
-                            <span>tckayunga@yahoo.com</span>
-                        </li>
-                        <li>
-                            <i class="fas fa-clock"></i>
-                            <span>Mon - Fri: 8:00 AM - 5:00 PM</span>
-                        </li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h3>Emergency Contacts</h3>
-                    <ul class="contact-info">
-                        <li>
-                            <i class="fas fa-ambulance"></i>
-                            <span>Medical Emergency: 112</span>
-                        </li>
-                        <li>
-                            <i class="fas fa-fire-extinguisher"></i>
-                            <span>Fire Department: 111</span>
-                        </li>
-                        <li>
-                            <i class="fas fa-shield-alt"></i>
-                            <span>Police: 999</span>
-                        </li>
-                        <li>
-                            <i class="fas fa-tools"></i>
-                            <span>Help Desk: 0800 200 300</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+    <section class="container section stats">
+      <h3>Impact at a Glance</h3>
+      <div class="grid stats-grid">
+        <div class="stat card"><div class="big">12+</div><div>Km roads upgraded</div></div>
+        <div class="stat card"><div class="big">3,200</div><div>Households served</div></div>
+        <div class="stat card"><div class="big">48</div><div>Small businesses supported</div></div>
+        <div class="stat card"><div class="big">25</div><div>Community events per year</div></div>
+      </div>
+    </section>
+
+    <section id="contact" class="container section contact">
+      <div class="contact-card">
+        <div class="contact-left">
+          <h4>Get Involved</h4>
+          <p>Volunteer, donate, or attend our community meetings.</p>
+          <div class="contact-actions">
+            <a class="btn btn-accent" href="#">Volunteer</a>
+            <a class="btn btn-outline" href="#">Attend Meeting</a>
+          </div>
         </div>
-        <div class="footer-bottom">
-            <div class="container">
-                <p>&copy; 2025 Kayunga Town Council. All Rights Reserved. | <a href="#" style="color: var(--secondary);">Privacy Policy</a> | <a href="#" style="color: var(--secondary);">Terms of Use</a></p>
-            </div>
-        </div>
-    </footer>
+        <form class="contact-form">
+          <label>Contact Email</label>
+          <input type="email" placeholder="you@sample.com">
+          <label>Message</label>
+          <textarea placeholder="I'd like to help with..."></textarea>
+          <div class="form-actions"><button class="btn btn-primary" type="button">Send</button></div>
+        </form>
+      </div>
+    </section>
+  </main>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Mobile menu toggle
-            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-            const mainNav = document.querySelector('.main-nav');
-            
-            mobileMenuBtn.addEventListener('click', function() {
-                mainNav.classList.toggle('active');
-            });
-
-            // Dropdown menu functionality for mobile
-            if (window.innerWidth <= 768) {
-                const dropdowns = document.querySelectorAll('.dropdown');
-                dropdowns.forEach(dropdown => {
-                    const dropdownLink = dropdown.querySelector('a');
-                    dropdownLink.addEventListener('click', function(e) {
-                        e.preventDefault();
-                        const dropdownMenu = this.nextElementSibling;
-                        dropdownMenu.classList.toggle('active');
-                    });
-                });
-            }
-
-            // Search functionality
-            const searchBox = document.querySelector('.search-box');
-            const searchInput = searchBox.querySelector('input');
-            const searchButton = searchBox.querySelector('button');
-            
-            searchButton.addEventListener('click', function() {
-                if (searchInput.value.trim() !== '') {
-                    alert('Searching for: ' + searchInput.value);
-                    // In a real implementation, this would redirect to search results
-                }
-            });
-            
-            searchInput.addEventListener('keypress', function(e) {
-                if (e.key === 'Enter') {
-                    searchButton.click();
-                }
-            });
-
-            // Smooth scrolling for anchor links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    document.querySelector(this.getAttribute('href')).scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                });
-            });
-        });
-    </script>
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>© 2025 Kayunga Town Council — All rights reserved</div>
+      <div class="footer-links"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Media kit</a></div>
+    </div>
+  </footer>
 </body>
 </html>
