@@ -3,870 +3,675 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>New York City Council - The Official Website of the New York City Council</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Kayunga Town Council</title>
     <style>
-        :root {
-            --nyc-blue: #003366;
-            --nyc-light-blue: #0055a4;
-            --nyc-yellow: #ffcc00;
-            --nyc-dark-gray: #333333;
-            --nyc-medium-gray: #666666;
-            --nyc-light-gray: #f5f5f5;
-        }
-        
+        /* Reset and base styles */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-
+        
         body {
-            background-color: var(--nyc-light-gray);
-            color: var(--nyc-dark-gray);
             line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
         }
-
+        
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 15px;
+            padding: 0 20px;
         }
-
-        /* Header Styles */
-        header {
-            background-color: var(--nyc-blue);
+        
+        /* Contact bar styles */
+        .contact-bar {
+            background-color: #1a3a5f;
             color: white;
-            padding: 15px 0;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-
-        .top-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding-bottom: 10px;
-            border-bottom: 1px solid rgba(255,255,255,0.2);
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-        }
-
-        .logo img {
-            height: 60px;
-            margin-right: 15px;
-        }
-
-        .logo-text h1 {
-            font-size: 24px;
-            font-weight: 600;
-        }
-
-        .logo-text p {
+            padding: 8px 0;
             font-size: 14px;
-            opacity: 0.9;
+            border-bottom: 2px solid #e74c3c;
         }
-
-        .search-bar {
-            display: flex;
-        }
-
-        .search-bar input {
-            padding: 8px 12px;
-            border: none;
-            border-radius: 4px 0 0 4px;
-            width: 250px;
-        }
-
-        .search-bar button {
-            background: var(--nyc-light-blue);
-            border: none;
-            color: white;
-            padding: 8px 15px;
-            border-radius: 0 4px 4px 0;
-            cursor: pointer;
-        }
-
-        .main-nav {
+        
+        .contact-bar .container {
             display: flex;
             justify-content: space-between;
-            padding-top: 15px;
+            align-items: center;
         }
-
-        .nav-links {
+        
+        .contact-info {
             display: flex;
-            list-style: none;
+            gap: 20px;
         }
-
-        .nav-links li {
-            margin-right: 25px;
-        }
-
-        .nav-links a {
+        
+        .contact-info a {
             color: white;
             text-decoration: none;
-            font-weight: 500;
-            font-size: 16px;
             transition: color 0.3s;
-            padding: 5px 0;
-            position: relative;
         }
-
-        .nav-links a:hover {
-            color: var(--nyc-yellow);
+        
+        .contact-info a:hover {
+            color: #e74c3c;
         }
-
-        .nav-links a:after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: 0;
-            left: 0;
-            background-color: var(--nyc-yellow);
-            transition: width 0.3s;
+        
+        .council-name {
+            font-weight: bold;
+            font-size: 16px;
         }
-
-        .nav-links a:hover:after {
-            width: 100%;
+        
+        /* Header styles */
+        .site-header {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
-
-        .language-selector select {
-            background: transparent;
+        
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+        
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo {
+            width: 60px;
+            height: 60px;
+            background-color: #1a3a5f;
             color: white;
-            border: 1px solid rgba(255,255,255,0.3);
-            padding: 5px 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
             border-radius: 4px;
+            font-size: 24px;
         }
-
-        .language-selector option {
+        
+        .brand-title {
+            font-size: 28px;
+            color: #1a3a5f;
+            margin-bottom: 5px;
+        }
+        
+        .tagline {
+            font-size: 16px;
+            color: #e74c3c;
+            font-weight: 500;
+        }
+        
+        .nav {
+            display: flex;
+            gap: 25px;
+            align-items: center;
+        }
+        
+        .nav a {
+            text-decoration: none;
             color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 16px;
         }
-
-        /* Hero Section */
+        
+        .nav a:hover {
+            color: #e74c3c;
+        }
+        
+        .nav a.cta {
+            background-color: #e74c3c;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        
+        .nav a.cta:hover {
+            background-color: #c0392b;
+            color: white;
+        }
+        
+        /* Hero section */
         .hero {
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1500916434205-0c77489c6cf7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80');
-            background-size: cover;
-            background-position: center;
+            background: linear-gradient(135deg, #1a3a5f 0%, #2c5282 100%);
             color: white;
             padding: 80px 0;
-            text-align: center;
         }
-
-        .hero h2 {
-            font-size: 42px;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-        }
-
-        .hero p {
-            font-size: 20px;
-            max-width: 700px;
-            margin: 0 auto 30px;
-        }
-
-        .cta-button {
-            display: inline-block;
-            background: var(--nyc-yellow);
-            color: var(--nyc-blue);
-            padding: 12px 30px;
-            border-radius: 4px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 18px;
-            transition: background 0.3s, transform 0.2s;
-        }
-
-        .cta-button:hover {
-            background: #e6b800;
-            transform: translateY(-2px);
-        }
-
-        /* Quick Links */
-        .quick-links {
-            background: var(--nyc-light-blue);
-            padding: 20px 0;
-        }
-
-        .quick-links-container {
-            display: flex;
-            justify-content: space-between;
-        }
-
-        .quick-link {
-            flex: 1;
-            text-align: center;
-            color: white;
-            text-decoration: none;
-            padding: 15px;
-            transition: background 0.3s, transform 0.2s;
-            border-radius: 4px;
-        }
-
-        .quick-link:hover {
-            background: rgba(255,255,255,0.1);
-            transform: translateY(-3px);
-        }
-
-        .quick-link i {
-            font-size: 24px;
-            margin-bottom: 10px;
-        }
-
-        .quick-link span {
-            display: block;
-            font-weight: 500;
-        }
-
-        /* Main Content */
-        .main-content {
-            padding: 50px 0;
-            background: white;
-        }
-
-        .section-title {
-            font-size: 28px;
-            color: var(--nyc-blue);
-            margin-bottom: 30px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid var(--nyc-yellow);
-        }
-
-        .news-grid {
+        
+        .hero-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 30px;
-            margin-bottom: 50px;
-        }
-
-        .news-card {
-            border: 1px solid #e0e0e0;
-            border-radius: 4px;
-            overflow: hidden;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .news-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-
-        .news-image {
-            height: 180px;
-            background-size: cover;
-            background-position: center;
-        }
-
-        .news-content {
-            padding: 20px;
-        }
-
-        .news-date {
-            color: var(--nyc-medium-gray);
-            font-size: 14px;
-            margin-bottom: 10px;
-        }
-
-        .news-title {
-            font-size: 18px;
-            font-weight: 600;
-            margin-bottom: 10px;
-            color: var(--nyc-blue);
-        }
-
-        .news-excerpt {
-            color: var(--nyc-medium-gray);
-            margin-bottom: 15px;
-        }
-
-        .read-more {
-            color: var(--nyc-light-blue);
-            text-decoration: none;
-            font-weight: 500;
-            display: inline-flex;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
             align-items: center;
         }
-
-        .read-more i {
-            margin-left: 5px;
-            transition: transform 0.3s;
-        }
-
-        .read-more:hover {
-            text-decoration: underline;
-        }
-
-        .read-more:hover i {
-            transform: translateX(3px);
-        }
-
-        .featured-section {
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 30px;
-            margin-bottom: 50px;
-        }
-
-        .featured-content h3 {
-            font-size: 24px;
-            color: var(--nyc-blue);
+        
+        .hero h2 {
+            font-size: 2.5rem;
             margin-bottom: 20px;
         }
-
-        .featured-content p {
-            margin-bottom: 20px;
+        
+        .hero p {
+            margin-bottom: 25px;
+            font-size: 1.1rem;
+            line-height: 1.7;
         }
-
-        .featured-list {
-            list-style: none;
+        
+        .hero-actions {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
         }
-
-        .featured-list li {
-            margin-bottom: 15px;
-            padding-left: 20px;
-            position: relative;
-        }
-
-        .featured-list li:before {
-            content: "•";
-            color: var(--nyc-yellow);
-            font-size: 20px;
-            position: absolute;
-            left: 0;
-        }
-
-        .featured-list a {
-            color: var(--nyc-light-blue);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .featured-list a:hover {
-            color: var(--nyc-blue);
-            text-decoration: underline;
-        }
-
-        .upcoming-events {
-            background: #f9f9f9;
-            padding: 20px;
-            border-radius: 4px;
-            border-left: 4px solid var(--nyc-yellow);
-        }
-
-        .upcoming-events h3 {
-            font-size: 22px;
-            color: var(--nyc-blue);
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid #e0e0e0;
-        }
-
-        .event-item {
-            margin-bottom: 20px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid #e0e0e0;
-        }
-
-        .event-item:last-child {
-            margin-bottom: 0;
-            padding-bottom: 0;
-            border-bottom: none;
-        }
-
-        .event-date {
-            font-weight: 600;
-            color: var(--nyc-light-blue);
-            margin-bottom: 5px;
-        }
-
-        .event-title {
-            font-weight: 500;
-            margin-bottom: 5px;
-        }
-
-        .event-location {
-            color: var(--nyc-medium-gray);
-            font-size: 14px;
-        }
-
-        .view-all {
+        
+        .btn {
             display: inline-block;
-            margin-top: 15px;
-            color: var(--nyc-light-blue);
+            padding: 12px 24px;
+            border-radius: 4px;
             text-decoration: none;
             font-weight: 500;
+            transition: all 0.3s;
+            font-size: 16px;
         }
-
-        .view-all:hover {
-            text-decoration: underline;
+        
+        .btn-outline {
+            border: 2px solid white;
+            color: white;
+            background: transparent;
         }
-
-        /* Council Members Section */
-        .council-members {
-            background: var(--nyc-light-gray);
-            padding: 50px 0;
-        }
-
-        .members-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 25px;
-        }
-
-        .member-card {
-            text-align: center;
+        
+        .btn-outline:hover {
             background: white;
-            border-radius: 4px;
-            padding: 20px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            color: #1a3a5f;
+        }
+        
+        .btn-accent {
+            background-color: #e74c3c;
+            color: white;
+        }
+        
+        .btn-accent:hover {
+            background-color: #c0392b;
+        }
+        
+        .key-values {
+            list-style: none;
+            margin-top: 30px;
+        }
+        
+        .key-values li {
+            margin-bottom: 15px;
+            display: flex;
+            gap: 10px;
+        }
+        
+        .key-values strong {
+            min-width: 80px;
+        }
+        
+        .video-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .video-player {
+            width: 100%;
+            display: block;
+            height: 300px;
+            background-color: #1a3a5f;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .video-meta {
+            padding: 10px 15px;
+            background: #f8f9fa;
+            color: #666;
+            font-size: 14px;
+            text-align: center;
+        }
+        
+        /* Section styles */
+        .section {
+            padding: 80px 0;
+        }
+        
+        .section h3 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            color: #1a3a5f;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .section h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 4px;
+            background: #e74c3c;
+        }
+        
+        .section p {
+            margin-bottom: 30px;
+            max-width: 800px;
+            font-size: 1.1rem;
+        }
+        
+        .alt-bg {
+            background-color: #f8f9fa;
+        }
+        
+        /* Timeline */
+        .timeline {
+            list-style: none;
+            position: relative;
+            max-width: 800px;
+            margin-top: 40px;
+        }
+        
+        .timeline:before {
+            content: '';
+            position: absolute;
+            left: 30px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #1a3a5f;
+        }
+        
+        .timeline li {
+            display: flex;
+            margin-bottom: 40px;
+            gap: 20px;
+        }
+        
+        .badge {
+            background: #1a3a5f;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            position: relative;
+            z-index: 1;
+            flex-shrink: 0;
+        }
+        
+        .timeline div {
+            padding-top: 10px;
+        }
+        
+        .timeline strong {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 1.2rem;
+            color: #1a3a5f;
+        }
+        
+        /* Cards grid */
+        .grid {
+            display: grid;
+            gap: 30px;
+        }
+        
+        .cards {
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            margin-top: 40px;
+        }
+        
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.1);
             transition: transform 0.3s, box-shadow 0.3s;
         }
-
-        .member-card:hover {
+        
+        .card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
         }
-
-        .member-photo {
+        
+        .card h4 {
+            margin-bottom: 15px;
+            color: #1a3a5f;
+            font-size: 1.3rem;
+        }
+        
+        /* Leaders grid */
+        .leaders {
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            margin-top: 40px;
+        }
+        
+        .leader {
+            text-align: center;
+        }
+        
+        .avatar {
             width: 120px;
             height: 120px;
             border-radius: 50%;
+            background: #ddd;
             margin: 0 auto 15px;
-            background-color: #ddd;
-            background-size: cover;
-            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            border: 3px solid #1a3a5f;
         }
-
-        .member-name {
-            font-weight: 600;
-            margin-bottom: 5px;
-            color: var(--nyc-blue);
+        
+        .leader strong {
+            display: block;
+            margin-bottom: 10px;
+            color: #1a3a5f;
         }
-
-        .member-district {
-            color: var(--nyc-medium-gray);
-            font-size: 14px;
+        
+        /* Stats grid */
+        .stats-grid {
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            margin-top: 40px;
         }
-
-        /* Footer */
-        footer {
-            background: var(--nyc-blue);
-            color: white;
-            padding: 50px 0 20px;
+        
+        .stat {
+            text-align: center;
+            padding: 40px 20px;
         }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 30px;
-            margin-bottom: 40px;
-        }
-
-        .footer-column h3 {
-            font-size: 18px;
-            margin-bottom: 20px;
-            color: var(--nyc-yellow);
-        }
-
-        .footer-links {
-            list-style: none;
-        }
-
-        .footer-links li {
+        
+        .big {
+            font-size: 3.5rem;
+            font-weight: bold;
+            color: #1a3a5f;
             margin-bottom: 10px;
         }
-
+        
+        /* Contact section */
+        .contact-card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            padding: 50px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+        
+        .contact-left h4 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: #1a3a5f;
+        }
+        
+        .contact-actions {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+        }
+        
+        .btn-primary {
+            background: #1a3a5f;
+            color: white;
+            border: none;
+            cursor: pointer;
+            padding: 12px 30px;
+        }
+        
+        .btn-primary:hover {
+            background: #2c5282;
+        }
+        
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .contact-form label {
+            font-weight: 500;
+            color: #1a3a5f;
+        }
+        
+        .contact-form input,
+        .contact-form textarea {
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: inherit;
+            font-size: 16px;
+        }
+        
+        .contact-form textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .form-actions {
+            text-align: right;
+        }
+        
+        /* Footer */
+        .site-footer {
+            background: #1a3a5f;
+            color: white;
+            padding: 40px 0;
+        }
+        
+        .footer-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .footer-links {
+            display: flex;
+            gap: 25px;
+        }
+        
         .footer-links a {
-            color: #ccc;
+            color: white;
             text-decoration: none;
             transition: color 0.3s;
         }
-
+        
         .footer-links a:hover {
-            color: white;
+            color: #e74c3c;
         }
-
-        .contact-info p {
-            margin-bottom: 10px;
-            color: #ccc;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 15px;
-            margin-top: 15px;
-        }
-
-        .social-links a {
-            color: white;
-            font-size: 20px;
-            transition: color 0.3s, transform 0.2s;
-        }
-
-        .social-links a:hover {
-            color: var(--nyc-yellow);
-            transform: translateY(-3px);
-        }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            color: #ccc;
-            font-size: 14px;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 992px) {
-            .featured-section {
+        
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .hero-grid {
                 grid-template-columns: 1fr;
             }
             
-            .footer-content {
-                grid-template-columns: repeat(2, 1fr);
+            .contact-card {
+                grid-template-columns: 1fr;
+                gap: 30px;
+                padding: 30px;
             }
             
-            .members-grid {
-                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-            }
-        }
-
-        @media (max-width: 768px) {
-            .top-header {
+            .header-inner {
                 flex-direction: column;
+                gap: 20px;
+            }
+            
+            .nav {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .contact-bar .container {
+                flex-direction: column;
+                gap: 10px;
                 text-align: center;
             }
             
-            .logo {
-                margin-bottom: 15px;
-            }
-            
-            .main-nav {
+            .contact-info {
                 flex-direction: column;
-                align-items: center;
+                gap: 5px;
             }
             
-            .nav-links {
-                flex-wrap: wrap;
-                justify-content: center;
-                margin-bottom: 15px;
-            }
-            
-            .nav-links li {
-                margin: 0 10px 10px;
-            }
-            
-            .quick-links-container {
+            .hero-actions {
                 flex-direction: column;
+                align-items: flex-start;
             }
             
-            .news-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .search-bar input {
-                width: 200px;
-            }
-        }
-
-        @media (max-width: 576px) {
-            .footer-content {
-                grid-template-columns: 1fr;
-            }
-            
-            .hero h2 {
-                font-size: 32px;
-            }
-            
-            .hero p {
-                font-size: 18px;
-            }
-            
-            .members-grid {
-                grid-template-columns: repeat(2, 1fr);
+            .footer-inner {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
+    <!-- Contact Bar -->
+    <div class="contact-bar">
         <div class="container">
-            <div class="top-header">
-                <div class="logo">
-                    <!-- Using text as logo since we can't use the actual image -->
-                    <div class="logo-text">
-                        <h1>New York City Council</h1>
-                        <p>The Official Website of the New York City Council</p>
-                    </div>
-                </div>
-                <div class="search-bar">
-                    <input type="text" placeholder="Search...">
-                    <button><i class="fas fa-search"></i></button>
+            <div class="contact-info">
+                <a href="tel:+256414231200">+256 414 231200</a>
+                <a href="mailto:tckayunga@yahoo.com">tckayunga@yahoo.com</a>
+            </div>
+            <div class="council-name">KAYUNGA TOWN COUNCIL</div>
+        </div>
+    </div>
+
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="brand">
+                <div class="logo">KTC</div>
+                <div>
+                    <h1 class="brand-title">Kayunga Town Council</h1>
+                    <p class="tagline">Advancing Together for a Greater Kayunga</p>
                 </div>
             </div>
-            <div class="main-nav">
-                <ul class="nav-links">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">About the Council</a></li>
-                    <li><a href="#">Council Members</a></li>
-                    <li><a href="#">Legislation</a></li>
-                    <li><a href="#">News</a></li>
-                    <li><a href="#">Events</a></li>
-                    <li><a href="#">Resources</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-                <div class="language-selector">
-                    <select>
-                        <option>English</option>
-                        <option>Español</option>
-                        <option>中文</option>
-                        <option>Русский</option>
-                    </select>
-                </div>
-            </div>
+            <nav class="nav">
+                <a href="#home">Home</a>
+                <a href="#about">About KTC</a>
+                <a href="#services">Services</a>
+                <a href="#projects">Projects</a>
+                <a href="#media">Media Center</a>
+                <a href="#tenders">Tenders</a>
+                <a href="#careers">Careers</a>
+                <a class="cta" href="#contact">Contact Us</a>
+            </nav>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <h2>Representing New Yorkers</h2>
-            <p>The New York City Council is the lawmaking body of the City of New York. It is comprised of 51 members from 51 council districts throughout the five boroughs.</p>
-            <a href="#" class="cta-button">Learn More About the Council</a>
-        </div>
-    </section>
-
-    <!-- Quick Links -->
-    <section class="quick-links">
-        <div class="container quick-links-container">
-            <a href="#" class="quick-link">
-                <i class="fas fa-users"></i>
-                <span>Find Your Council Member</span>
-            </a>
-            <a href="#" class="quick-link">
-                <i class="fas fa-file-alt"></i>
-                <span>View Legislation</span>
-            </a>
-            <a href="#" class="quick-link">
-                <i class="fas fa-calendar-alt"></i>
-                <span>Attend a Meeting</span>
-            </a>
-            <a href="#" class="quick-link">
-                <i class="fas fa-bullhorn"></i>
-                <span>Testify at a Hearing</span>
-            </a>
-            <a href="#" class="quick-link">
-                <i class="fas fa-search"></i>
-                <span>Track the Budget</span>
-            </a>
-        </div>
-    </section>
-
-    <!-- Main Content -->
-    <main class="main-content">
-        <div class="container">
-            <h2 class="section-title">Latest News</h2>
-            <div class="news-grid">
-                <div class="news-card">
-                    <div class="news-image" style="background-image: url('https://images.unsplash.com/photo-1583324113626-70df0f4deaab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80');"></div>
-                    <div class="news-content">
-                        <div class="news-date">June 15, 2023</div>
-                        <h3 class="news-title">City Council Passes Affordable Housing Legislation</h3>
-                        <p class="news-excerpt">New package of bills aims to address the city's housing crisis and protect tenants.</p>
-                        <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+    <main>
+        <section class="hero">
+            <div class="container hero-grid">
+                <div class="hero-copy">
+                    <h2>About Kayunga Town Council (KTC)</h2>
+                    <p>KTC works to deliver clean roads, sustainable development and community empowerment. Below is a short video summary — replace this with your official recording.</p>
+                    <div class="hero-actions">
+                        <a class="btn btn-outline" href="#programs">Our Programs</a>
+                        <a class="btn btn-accent" href="#contact">Volunteer / Donate</a>
                     </div>
-                </div>
-                <div class="news-card">
-                    <div class="news-image" style="background-image: url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80');"></div>
-                    <div class="news-content">
-                        <div class="news-date">June 12, 2023</div>
-                        <h3 class="news-title">Council Announces Climate Resiliency Initiative</h3>
-                        <p class="news-excerpt">$2 billion plan to protect NYC neighborhoods from climate change impacts.</p>
-                        <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-                <div class="news-card">
-                    <div class="news-image" style="background-image: url('https://images.unsplash.com/photo-1551135049-8a33b5883817?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80');"></div>
-                    <div class="news-content">
-                        <div class="news-date">June 8, 2023</div>
-                        <h3 class="news-title">Small Business Recovery Grants Now Available</h3>
-                        <p class="news-excerpt">Council allocates $50 million to support local businesses affected by pandemic.</p>
-                        <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="featured-section">
-                <div class="featured-content">
-                    <h3>About the New York City Council</h3>
-                    <p>The New York City Council is the law-making body of New York City. The Council monitors the operation and performance of city agencies, makes land use decisions, and approves the city's budget.</p>
-                    <p>The Council is an equal partner with the Mayor in the governance of the city. It is made up of 51 members, each elected from a separate district across the five boroughs for a four-year term.</p>
-                    
-                    <h3 style="margin-top: 30px;">Key Responsibilities</h3>
-                    <ul class="featured-list">
-                        <li><a href="#">Introducing and passing legislation</a></li>
-                        <li><a href="#">Approving the city's budget</a></li>
-                        <li><a href="#">Monitoring city agencies</a></li>
-                        <li><a href="#">Making land use decisions</a></li>
-                        <li><a href="#">Overseeing city programs</a></li>
+                    <ul class="key-values">
+                        <li><strong>Mission</strong><div>To create clean, safe and progressive urban centers.</div></li>
+                        <li><strong>Vision</strong><div>A thriving municipality with inclusive services and strong infrastructure.</div></li>
+                        <li><strong>Values</strong><div>Integrity • Service • Community</div></li>
                     </ul>
                 </div>
-                
-                <div class="upcoming-events">
-                    <h3>Upcoming Events</h3>
-                    <div class="event-item">
-                        <div class="event-date">June 20, 2023 | 10:00 AM</div>
-                        <div class="event-title">Committee on Finance Hearing</div>
-                        <div class="event-location">City Hall, Committee Room</div>
+
+                <div class="hero-video">
+                    <div class="video-card">
+                        <!-- Replace source with your MP4 file named ktc-about.mp4 inside /assets -->
+                        <div class="video-player">
+                            [Video Placeholder - Upload ktc-about.mp4]
+                        </div>
+                        <div class="video-meta">Narrated overview — 01:42</div>
                     </div>
-                    <div class="event-item">
-                        <div class="event-date">June 22, 2023 | 1:30 PM</div>
-                        <div class="event-title">Stated Meeting of the Council</div>
-                        <div class="event-location">City Hall, Council Chambers</div>
-                    </div>
-                    <div class="event-item">
-                        <div class="event-date">June 25, 2023 | 6:00 PM</div>
-                        <div class="event-title">Town Hall: Public Safety</div>
-                        <div class="event-location">Brooklyn Borough Hall</div>
-                    </div>
-                    <div class="event-item">
-                        <div class="event-date">June 28, 2023 | 11:00 AM</div>
-                        <div class="event-title">Committee on Education Hearing</div>
-                        <div class="event-location">250 Broadway, 16th Floor</div>
-                    </div>
-                    <a href="#" class="view-all">View All Events <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
-        </div>
+        </section>
+
+        <section id="about" class="container section">
+            <h3>Our Story</h3>
+            <p>A short timeline summarising KTC's milestones and achievements. Replace the entries below with real dates and events.</p>
+            <ol class="timeline">
+                <li><span class="badge">2015</span><div><strong>Formation and early planning</strong><p>KTC was established to coordinate town services and infrastructure projects.</p></div></li>
+                <li><span class="badge">2019</span><div><strong>Road rehabilitation program</strong><p>Major roads were upgraded and drainage improved.</p></div></li>
+                <li><span class="badge">2024</span><div><strong>Community empowerment initiatives</strong><p>Skills training and small-business grants launched.</p></div></li>
+            </ol>
+        </section>
+
+        <section id="programs" class="section alt-bg">
+            <div class="container">
+                <h3>Programs & Services</h3>
+                <p>How KTC serves the community — replace with video highlights.</p>
+                <div class="grid cards">
+                    <div class="card"><h4>Roads & Drainage</h4><p>Planned improvements and maintenance.</p></div>
+                    <div class="card"><h4>Waste Management</h4><p>Collection, awareness and recycling.</p></div>
+                    <div class="card"><h4>Community Health</h4><p>Public health outreach and sanitation.</p></div>
+                    <div class="card"><h4>Business Support</h4><p>Training and small grants.</p></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="leadership" class="container section">
+            <h3>Leadership</h3>
+            <p>Introduce the council leaders and key officers.</p>
+            <div class="grid leaders">
+                <div class="leader"><div class="avatar">Img</div><strong>Chairperson</strong><p>Short bio or quote — 1–2 lines.</p></div>
+                <div class="leader"><div class="avatar">Img</div><strong>Town Clerk</strong><p>Short bio or quote — 1–2 lines.</p></div>
+                <div class="leader"><div class="avatar">Img</div><strong>Engineering Lead</strong><p>Short bio or quote — 1–2 lines.</p></div>
+                <div class="leader"><div class="avatar">Img</div><strong>Community Officer</strong><p>Short bio or quote — 1–2 lines.</p></div>
+            </div>
+        </section>
+
+        <section class="container section stats">
+            <h3>Impact at a Glance</h3>
+            <div class="grid stats-grid">
+                <div class="stat card"><div class="big">12+</div><div>Km roads upgraded</div></div>
+                <div class="stat card"><div class="big">3,200</div><div>Households served</div></div>
+                <div class="stat card"><div class="big">48</div><div>Small businesses supported</div></div>
+                <div class="stat card"><div class="big">25</div><div>Community events per year</div></div>
+            </div>
+        </section>
+
+        <section id="contact" class="container section contact">
+            <div class="contact-card">
+                <div class="contact-left">
+                    <h4>Get Involved</h4>
+                    <p>Volunteer, donate, or attend our community meetings.</p>
+                    <div class="contact-actions">
+                        <a class="btn btn-accent" href="#">Volunteer</a>
+                        <a class="btn btn-outline" href="#">Attend Meeting</a>
+                    </div>
+                </div>
+                <form class="contact-form">
+                    <label>Contact Email</label>
+                    <input type="email" placeholder="you@sample.com">
+                    <label>Message</label>
+                    <textarea placeholder="I'd like to help with..."></textarea>
+                    <div class="form-actions"><button class="btn btn-primary" type="button">Send</button></div>
+                </form>
+            </div>
+        </section>
     </main>
 
-    <!-- Council Members Section -->
-    <section class="council-members">
-        <div class="container">
-            <h2 class="section-title">Council Members</h2>
-            <div class="members-grid">
-                <div class="member-card">
-                    <div class="member-photo" style="background-image: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80');"></div>
-                    <div class="member-name">Adrienne Adams</div>
-                    <div class="member-district">Speaker</div>
-                </div>
-                <div class="member-card">
-                    <div class="member-photo" style="background-image: url('https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80');"></div>
-                    <div class="member-name">Justin Brannan</div>
-                    <div class="member-district">District 43</div>
-                </div>
-                <div class="member-card">
-                    <div class="member-photo" style="background-image: url('https://images.unsplash.com/photo-1519345182560-3f2917c472ef?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80');"></div>
-                    <div class="member-name">Diana Ayala</div>
-                    <div class="member-district">District 8</div>
-                </div>
-                <div class="member-card">
-                    <div class="member-photo" style="background-image: url('https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80');"></div>
-                    <div class="member-name">Gale Brewer</div>
-                    <div class="member-district">District 6</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-column">
-                    <h3>About the Council</h3>
-                    <ul class="footer-links">
-                        <li><a href="#">Council Members</a></li>
-                        <li><a href="#">Committees</a></li>
-                        <li><a href="#">Legislative Process</a></li>
-                        <li><a href="#">History of the Council</a></li>
-                        <li><a href="#">Jobs at the Council</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Resources</h3>
-                    <ul class="footer-links">
-                        <li><a href="#">Council Reports</a></li>
-                        <li><a href="#">Budget Documents</a></li>
-                        <li><a href="#">Public Hearing Schedule</a></li>
-                        <li><a href="#">Rules of the Council</a></li>
-                        <li><a href="#">Open Data</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Get Involved</h3>
-                    <ul class="footer-links">
-                        <li><a href="#">Attend a Meeting</a></li>
-                        <li><a href="#">Testify at a Hearing</a></li>
-                        <li><a href="#">Contact Your Council Member</a></li>
-                        <li><a href="#">Request a Proclamation</a></li>
-                        <li><a href="#">Internships</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Contact Us</h3>
-                    <div class="contact-info">
-                        <p><strong>New York City Council</strong></p>
-                        <p>City Hall</p>
-                        <p>New York, NY 10007</p>
-                        <p>Phone: (212) 788-7100</p>
-                        <p>Email: council@council.nyc.gov</p>
-                    </div>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2023 New York City Council. All Rights Reserved.</p>
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <div>© 2025 Kayunga Town Council — All rights reserved</div>
+            <div class="footer-links">
+                <a href="#">Privacy</a>
+                <a href="#">Terms</a>
+                <a href="#">Media kit</a>
             </div>
         </div>
     </footer>
-
-    <script>
-        // Simple search functionality
-        document.querySelector('.search-bar button').addEventListener('click', function() {
-            const searchTerm = document.querySelector('.search-bar input').value;
-            if (searchTerm.trim() !== '') {
-                alert(`Searching for: ${searchTerm}`);
-                // In a real implementation, this would redirect to search results
-            }
-        });
-
-        // Allow Enter key to trigger search
-        document.querySelector('.search-bar input').addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                document.querySelector('.search-bar button').click();
-            }
-        });
-
-        // Simple language selector functionality
-        document.querySelector('.language-selector select').addEventListener('change', function() {
-            const selectedLanguage = this.value;
-            alert(`Language changed to: ${selectedLanguage}`);
-            // In a real implementation, this would change the site language
-        });
-
-        // Add hover effect to council member cards
-        const memberCards = document.querySelectorAll('.member-card');
-        memberCards.forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-5px)';
-                this.style.boxShadow = '0 5px 15px rgba(0,0,0,0.1)';
-            });
-            
-            card.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0)';
-                this.style.boxShadow = '0 2px 5px rgba(0,0,0,0.05)';
-            });
-        });
-    </script>
 </body>
 </html>
