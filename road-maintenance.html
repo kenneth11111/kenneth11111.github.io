@@ -452,12 +452,21 @@
             background: #e9ecef;
         }
 
+        /* Align implementation status column */
+        .projects-table th:nth-child(2),
+        .projects-table td:nth-child(2) {
+            width: 200px;
+            text-align: center;
+        }
+
         .status-badge {
             display: inline-block;
             padding: 5px 12px;
             border-radius: 20px;
             font-size: 14px;
             font-weight: 600;
+            text-align: center;
+            min-width: 150px;
         }
 
         .status-ongoing {
@@ -670,6 +679,12 @@
             .projects-table {
                 display: block;
                 overflow-x: auto;
+            }
+            
+            .projects-table th:nth-child(2),
+            .projects-table td:nth-child(2) {
+                width: auto;
+                text-align: center;
             }
             
             .emergency-contacts {
@@ -989,36 +1004,7 @@
             </div>
 
             <!-- Road Projects Information Section -->
-            <div class="emergency-section">
-                <div class="emergency-content">
-                    <h2 class="emergency-title">Road Network Information</h2>
-                    <p>Kayunga Town Council manages a comprehensive road network serving our growing community</p>
-                    
-                    <div class="emergency-contacts">
-                        <div class="emergency-item">
-                            <i class="fas fa-road"></i>
-                            <h3>Total Road Length</h3>
-                            <p>42.5 Kilometers</p>
-                        </div>
-                        <div class="emergency-item">
-                            <i class="fas fa-map-marked-alt"></i>
-                            <h3>Number of Roads</h3>
-                            <p>28 Roads</p>
-                        </div>
-                        <div class="emergency-item">
-                            <i class="fas fa-hard-hat"></i>
-                            <h3>Projects Office</h3>
-                            <p>+256 414 231 200</p>
-                        </div>
-                        <div class="emergency-item">
-                            <i class="fas fa-clipboard-list"></i>
-                            <h3>Project Updates</h3>
-                            <p>0750858803</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+         
     </section>
 
     <!-- Footer -->
