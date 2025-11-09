@@ -498,6 +498,30 @@
             color: white;
         }
 
+        /* Portrait Team Card */
+        .team-card.portrait {
+            display: flex;
+            flex-direction: column;
+            max-width: 300px;
+            margin: 0 auto;
+        }
+
+        .team-card.portrait .team-image {
+            height: 350px;
+        }
+
+        .team-card.portrait .team-info {
+            padding: 25px;
+        }
+
+        .team-card.portrait .team-name {
+            font-size: 22px;
+        }
+
+        .team-card.portrait .team-position {
+            font-size: 16px;
+        }
+
         /* Health Programs Section */
         .health-programs {
             margin-bottom: 80px;
@@ -760,6 +784,10 @@
             .emergency-contacts {
                 grid-template-columns: 1fr;
             }
+            
+            .team-card.portrait {
+                max-width: 100%;
+            }
         }
     </style>
 </head>
@@ -1013,17 +1041,19 @@
                 </div>
 
                 <div class="team-grid">
-                    <!-- Team Member 3 -->
-                    <div class="team-card">
+                    <!-- Team Member 3 - Portrait Card -->
+                    <div class="team-card portrait">
                         <div class="team-image">
                             <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Health Inspector">
                         </div>
                         <div class="team-info">
                             <h3 class="team-name">Mr. John Ssebunya</h3>
                             <p class="team-position">Health Inspector</p>
+                            <p class="team-description">With over 8 years of experience in public health inspection, John specializes in food safety compliance and environmental sanitation. He leads our community outreach programs and ensures all establishments meet health standards.</p>
                             <div class="team-contact">
                                 <a href="#" class="contact-icon"><i class="fas fa-phone"></i></a>
                                 <a href="#" class="contact-icon"><i class="fas fa-envelope"></i></a>
+                                <a href="#" class="contact-icon"><i class="fas fa-map-marker-alt"></i></a>
                             </div>
                         </div>
                     </div>
