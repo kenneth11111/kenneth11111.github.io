@@ -549,6 +549,10 @@
         .program-image {
             height: 200px;
             overflow: hidden;
+            background-color: #f8f9fa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .program-image img {
@@ -564,6 +568,7 @@
 
         .program-info {
             padding: 25px;
+            text-align: center;
         }
 
         .program-title {
@@ -576,6 +581,25 @@
             color: var(--gray);
             margin-bottom: 20px;
             line-height: 1.6;
+        }
+
+        .placeholder-content {
+            text-align: center;
+            padding: 40px 20px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        .placeholder-content i {
+            font-size: 48px;
+            color: var(--secondary);
+            margin-bottom: 20px;
+        }
+
+        .placeholder-content h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
         }
 
         /* Emergency Section */
@@ -1037,24 +1061,18 @@
             <div class="health-team">
                 <div class="section-title">
                     <h2>Meet the Third Member of Our Team</h2>
-                    <p>Our dedicated public health professionals serving Kayunga</p>
                 </div>
 
                 <div class="team-grid">
                     <!-- Team Member 3 - Portrait Card -->
                     <div class="team-card portrait">
                         <div class="team-image">
-                            <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Health Inspector">
+                            <img src="#">
                         </div>
                         <div class="team-info">
-                            <h3 class="team-name">Mr. John Ssebunya</h3>
-                            <p class="team-position">Health Inspector</p>
-                            <p class="team-description">With over 8 years of experience in public health inspection, John specializes in food safety compliance and environmental sanitation. He leads our community outreach programs and ensures all establishments meet health standards.</p>
-                            <div class="team-contact">
-                                <a href="#" class="contact-icon"><i class="fas fa-phone"></i></a>
-                                <a href="#" class="contact-icon"><i class="fas fa-envelope"></i></a>
-                                <a href="#" class="contact-icon"><i class="fas fa-map-marker-alt"></i></a>
-                            </div>
+                            <h3 class="team-name">Ms. Nangobi Emillie</h3>
+                            <p class="team-position">Health Assistant</p>
+                            
                         </div>
                     </div>
                 </div>
@@ -1067,48 +1085,12 @@
                     <p>Ongoing public health initiatives in Kayunga Town Council</p>
                 </div>
 
-                <div class="programs-grid">
-                    <!-- Program 1 -->
-                    <div class="program-card">
-                        <div class="program-image">
-                            <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Immunization Program">
-                        </div>
-                        <div class="program-info">
-                            <h3 class="program-title">Immunization Program</h3>
-                            <p class="program-description">
-                                Regular vaccination campaigns for children and adults to prevent vaccine-preventable diseases and protect community health.
-                            </p>
-                            <a href="#" class="btn">Get Vaccinated</a>
-                        </div>
-                    </div>
-
-                    <!-- Program 2 -->
-                    <div class="program-card">
-                        <div class="program-image">
-                            <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Malaria Prevention">
-                        </div>
-                        <div class="program-info">
-                            <h3 class="program-title">Malaria Prevention</h3>
-                            <p class="program-description">
-                                Distribution of mosquito nets, indoor residual spraying, and community education to reduce malaria transmission.
-                            </p>
-                            <a href="#" class="btn">Learn More</a>
-                        </div>
-                    </div>
-
-                    <!-- Program 3 -->
-                    <div class="program-card">
-                        <div class="program-image">
-                            <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="HIV/AIDS Awareness">
-                        </div>
-                        <div class="program-info">
-                            <h3 class="program-title">HIV/AIDS Awareness</h3>
-                            <p class="program-description">
-                                Prevention education, testing services, and support programs for people living with HIV/AIDS in our community.
-                            </p>
-                            <a href="#" class="btn">Get Tested</a>
-                        </div>
-                    </div>
+                <!-- Placeholder for upcoming programs -->
+                <div class="placeholder-content">
+                    <i class="fas fa-clock"></i>
+                    <h3>Health Programs Coming Soon</h3>
+                    <p>Our health programs and initiatives will be updated here once they officially start. Check back later for information about upcoming public health campaigns, vaccination drives, and community wellness programs.</p>
+                    <p><strong>To be updated when programs start</strong></p>
                 </div>
             </div>
 
