@@ -359,6 +359,10 @@
         .department-image {
             height: 300px;
             overflow: hidden;
+            background-color: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .department-image img {
@@ -767,7 +771,6 @@
                                 <li><i class="fas fa-check"></i> Budget Planning & Management</li>
                                 <li><i class="fas fa-check"></i> Revenue Collection</li>
                                 <li><i class="fas fa-check"></i> Financial Reporting</li>
-                               
                             </ul>
                         </div>
                         <button class="read-more-btn" data-department="finance">Read More</button>
@@ -856,7 +859,7 @@
                         <p class="department-head">Mr. Segonga Abbasi - Chief Auditor</p>
                     </div>
                     <div class="department-image">
-                        <img src="#">
+                        <img src="">
                     </div>
                     <div class="department-info">
                         <p class="department-description">
@@ -881,7 +884,7 @@
                         <p class="department-head">Ms. Mwanja Doreen</p>
                     </div>
                     <div class="department-image">
-                        <img src="#">
+                        <img src="">
                     </div>
                     <div class="department-info">
                         <p class="department-description">
@@ -906,7 +909,7 @@
                         <p class="department-head">Ms. Mirembe Nelly</p>
                     </div>
                     <div class="department-image">
-                        <img src="#">
+                        <img src="">
                     </div>
                     <div class="department-info">
                         <p class="department-description">
@@ -923,24 +926,29 @@
                         <button class="read-more-btn" data-department="commerce">Read More</button>
                     </div>
                 </div>
-            </div>
-        </div>
 
-        <!-- PUBLIC HEALTH -->
-      <div class="department-card">
+                <!-- Public Health Department -->
+                <div class="department-card">
                     <div class="department-header">
-                        <h3 class="department-name">PUBLIC HEALTH</h3>
+                        <h3 class="department-name">Public Health</h3>
                         <p class="department-head">Mr. Muonge Evans & Ms. Nakyobe Annet Rhoda</p>
                     </div>
                     <div class="department-image">
-                        <img src="#">
+                        <img src="">
                     </div>
                     <div class="department-info">
                         <p class="department-description">
-                            The Public Health Department is responsible for protecting and improving community health through disease prevention, health promotion, sanitation enforcement, and environmental health services to ensure a healthy living environment for all residents
+                            The Public Health Department is responsible for protecting and improving community health through disease prevention, health promotion, sanitation enforcement, and environmental health services to ensure a healthy living environment for all residents.
                         </p>
-                    
-                        <button class="read-more-btn" data-department="commerce">Read More</button>
+                        <div class="department-features">
+                            <ul class="feature-list">
+                                <li><i class="fas fa-check"></i> Disease Prevention & Control</li>
+                                <li><i class="fas fa-check"></i> Health Facility Supervision</li>
+                                <li><i class="fas fa-check"></i> Public Health Enforcement</li>
+                                <li><i class="fas fa-check"></i> Health Education & Promotion</li>
+                            </ul>
+                        </div>
+                        <button class="read-more-btn" data-department="publichealth">Read More</button>
                     </div>
                 </div>
             </div>
@@ -985,7 +993,6 @@
                             <i class="fas fa-receipt"></i>
                             <p>Financial Reporting</p>
                         </div>
-                       
                     </div>
                 </div>
             </div>
@@ -1029,14 +1036,10 @@
                         <div class="service-item">
                             <i class="fas fa-file-alt"></i>
                             <p>Document Processing</p>
-                            <p></p>Proper documentation and archiving of council records</p>
                         </div>
                         <div class="service-item">
                             <i class="fas fa-shield-alt"></i>
-                            <p>Security Coordination and Law Enforcement</p>
-                        </div>
-                         <div class="service-item">
-                            <p>Management of birth and death registration</p>
+                            <p>Security Coordination</p>
                         </div>
                     </div>
                 </div>
@@ -1284,17 +1287,17 @@
         </div>
     </div>
 
-     <!-- PUBLIC HEALTH Modal -->
-    <div id="commerce-modal" class="department-modal">
+    <!-- Public Health Modal -->
+    <div id="publichealth-modal" class="department-modal">
         <div class="modal-content">
             <div class="modal-header">
-                <h2 class="modal-title">Public Health</h2>
+                <h2 class="modal-title">Public Health Department</h2>
                 <button class="close-modal">&times;</button>
             </div>
             <div class="modal-body">
                 <div class="modal-section">
                     <h3>Department Overview</h3>
-                    <p>The department serves as the frontline defense against diseases and environmental health hazards, ensuring community well-being through proactive health interventions, regulatory enforcement, and health promotion activities that directly impact the quality of life and public safety within the town council.</p>
+                    <p>The Public Health Department serves as the frontline defense against diseases and environmental health hazards, ensuring community well-being through proactive health interventions, regulatory enforcement, and health promotion activities that directly impact the quality of life and public safety within the town council.</p>
                 </div>
                 <div class="modal-section">
                     <h3>Key Responsibilities</h3>
@@ -1312,19 +1315,19 @@
                     <div class="services-grid">
                         <div class="service-item">
                             <i class="fas fa-utensils"></i>
-                            <p>Food safety inspections and certification</p>
+                            <p>Food Safety Inspections</p>
                         </div>
                         <div class="service-item">
                             <i class="fas fa-hand-holding-heart"></i>
-                            <p>Health education and community outreach</p>
+                            <p>Health Education</p>
                         </div>
                         <div class="service-item">
                             <i class="fas fa-hand-sparkles"></i>
-                            <p>Environmental sanitation monitoring</p>
+                            <p>Sanitation Monitoring</p>
                         </div>
                         <div class="service-item">
                             <i class="fas fa-dumpster"></i>
-                            <p>Solid waste management oversight</p>
+                            <p>Waste Management</p>
                         </div>
                     </div>
                 </div>
