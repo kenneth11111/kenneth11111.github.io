@@ -20,7 +20,6 @@
             --dark: #333;
             --light: #f8f9fa;
             --gray: #6c757d;
-            --health-green: #28a745;
         }
 
         body {
@@ -34,7 +33,7 @@
             color: inherit;
         }
 
-        ul {
+        ul, ol {
             list-style: none;
         }
 
@@ -69,15 +68,6 @@
 
         .btn-secondary:hover {
             background: #e6b800;
-        }
-
-        .btn-health {
-            background: var(--health-green);
-            color: white;
-        }
-
-        .btn-health:hover {
-            background: #218838;
         }
 
         .header-top {
@@ -266,7 +256,7 @@
         /* Public Health Hero Section */
         .health-hero {
             position: relative;
-            height: 500px;
+            height: 200px;
             background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80');
             background-size: cover;
             background-position: center;
@@ -329,52 +319,102 @@
             margin: 20px auto 0;
         }
 
-        /* Health Services Section */
-        .health-services {
+        /* Services Layout - Not Tiled */
+        .services-section {
             margin-bottom: 80px;
         }
 
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .service-card {
+        .service-item {
             background: var(--light);
             border-radius: 12px;
-            overflow: hidden;
+            padding: 40px;
+            margin-bottom: 30px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            border-left: 5px solid var(--primary);
             transition: transform 0.3s;
-            border-left: 5px solid var(--health-green);
         }
 
-        .service-card:hover {
-            transform: translateY(-10px);
+        .service-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
         }
 
         .service-icon {
-            background: var(--health-green);
+            background: var(--primary);
             color: white;
-            padding: 25px;
-            text-align: center;
-            font-size: 40px;
-        }
-
-        .service-info {
-            padding: 25px;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            margin-right: 25px;
+            flex-shrink: 0;
         }
 
         .service-title {
-            font-size: 22px;
+            font-size: 28px;
             color: var(--primary);
-            margin-bottom: 15px;
         }
 
         .service-description {
             color: var(--gray);
             margin-bottom: 20px;
             line-height: 1.6;
+            font-size: 16px;
+        }
+
+        .service-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 25px;
+        }
+
+        .detail-category {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .detail-category h4 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+        }
+
+        .detail-category h4 i {
+            margin-right: 10px;
+            color: var(--secondary);
+        }
+
+        .detail-category ul {
+            list-style-type: none;
+        }
+
+        .detail-category li {
+            margin-bottom: 8px;
+            color: var(--gray);
+            line-height: 1.5;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .detail-category li:before {
+            content: "•";
+            color: var(--secondary);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
         }
 
         /* Health Team Section */
@@ -475,7 +515,7 @@
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0,0,0,0.08);
             transition: transform 0.3s;
-            border-top: 5px solid var(--health-green);
+            border-top: 5px solid var(--primary);
         }
 
         .program-card:hover {
@@ -516,7 +556,7 @@
 
         /* Emergency Section */
         .emergency-section {
-            background: linear-gradient(135deg, var(--accent), #c1121f);
+            background: linear-gradient(135deg, var(--primary), #003d7a);
             color: white;
             padding: 60px 0;
             border-radius: 12px;
@@ -682,7 +722,7 @@
             }
             
             .health-hero {
-                height: 400px;
+                height: 200px;
             }
             
             .health-hero h1 {
@@ -698,7 +738,20 @@
                 margin-top: 5px;
             }
             
-            .services-grid,
+            .service-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .service-icon {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+            
+            .service-details {
+                grid-template-columns: 1fr;
+            }
+            
             .team-grid,
             .programs-grid {
                 grid-template-columns: 1fr;
@@ -785,110 +838,168 @@
     <section class="health-hero">
         <div class="container">
             <div class="health-hero-content">
-                <h1>Public Health Department</h1>
-                <p>Protecting and improving community health through disease prevention, health promotion, and environmental health services</p>
-                <a href="#services" class="btn btn-health">Our Services</a>
+                <h1>Public Health Services</h1>
+                <a href="#services" class="btn btn-secondary">Our Services</a>
             </div>
         </div>
     </section>
 
     <!-- Health Content Section -->
-    <section class="health-content">
+    <section class="health-content" id="services">
         <div class="container">
             <div class="section-title">
-                <h2>Our Mission</h2>
-                <p>To ensure a healthy living environment for all residents of Kayunga through proactive health interventions and regulatory enforcement</p>
+                <h2>Our Health Services</h2>
+                <p>Comprehensive public health services for the Kayunga community</p>
             </div>
 
-            <!-- Health Services Section -->
-            <div class="health-services" id="services">
-                <div class="section-title">
-                    <h2>Our Services</h2>
-                    <p>Comprehensive public health services for the Kayunga community</p>
-                </div>
-
-                <div class="services-grid">
-                    <!-- Service 1 -->
-                    <div class="service-card">
+            <!-- Services Section - Not Tiled -->
+            <div class="services-section">
+                <!-- Food Safety Service -->
+                <div class="service-item">
+                    <div class="service-header">
                         <div class="service-icon">
                             <i class="fas fa-utensils"></i>
                         </div>
-                        <div class="service-info">
-                            <h3 class="service-title">Food Safety & Hygiene</h3>
-                            <p class="service-description">
-                                Inspection and certification of food establishments, ensuring compliance with health standards and regulations to prevent foodborne illnesses.
-                            </p>
-                            <a href="#" class="btn">Learn More</a>
+                        <h2 class="service-title">Food Safety & Hygiene</h2>
+                    </div>
+                    <p class="service-description">
+                        Ensuring all food establishments comply with health standards to prevent foodborne illnesses and protect public health through comprehensive inspection, training, and monitoring programs.
+                    </p>
+                    <div class="service-details">
+                        <div class="detail-category">
+                            <h4><i class="fas fa-clipboard-check"></i> Inspection & Licensing</h4>
+                            <ul>
+                                <li>Regular inspections of restaurants, hotels, and food vendors</li>
+                                <li>Issuance of food handler's certificates</li>
+                                <li>Pre-operational inspections for new businesses</li>
+                                <li>Compliance monitoring with food safety standards</li>
+                            </ul>
+                        </div>
+                        <div class="detail-category">
+                            <h4><i class="fas fa-user-graduate"></i> Training & Education</h4>
+                            <ul>
+                                <li>Mandatory food safety training programs</li>
+                                <li>Certification for food establishment managers</li>
+                                <li>Hygiene education for proper food handling</li>
+                                <li>HACCP principles training</li>
+                            </ul>
+                        </div>
+                        <div class="detail-category">
+                            <h4><i class="fas fa-vial"></i> Quality Monitoring</h4>
+                            <ul>
+                                <li>Food sampling and contamination testing</li>
+                                <li>Storage temperature monitoring</li>
+                                <li>Expiry date and labeling compliance</li>
+                                <li>Food source verification</li>
+                            </ul>
                         </div>
                     </div>
+                </div>
 
-                    <!-- Service 2 -->
-                    <div class="service-card">
+                <!-- Environmental Sanitation -->
+                <div class="service-item">
+                    <div class="service-header">
                         <div class="service-icon">
                             <i class="fas fa-hand-sparkles"></i>
                         </div>
-                        <div class="service-info">
-                            <h3 class="service-title">Environmental Sanitation</h3>
-                            <p class="service-description">
-                                Monitoring of sanitation facilities, waste management systems, and public cleanliness to maintain a healthy environment.
-                            </p>
-                            <a href="#" class="btn">Learn More</a>
+                        <h2 class="service-title">Environmental Sanitation</h2>
+                    </div>
+                    <p class="service-description">
+                        Monitoring sanitation facilities and waste management systems to maintain a clean and healthy environment for all residents through regular inspections and enforcement of sanitation standards.
+                    </p>
+                    <div class="service-details">
+                        <div class="detail-category">
+                            <h4><i class="fas fa-restroom"></i> Facility Inspection</h4>
+                            <ul>
+                                <li>Public sanitation facility monitoring</li>
+                                <li>Waste management system oversight</li>
+                                <li>Public cleanliness enforcement</li>
+                                <li>Drainage system maintenance</li>
+                            </ul>
+                        </div>
+                        <div class="detail-category">
+                            <h4><i class="fas fa-shield-alt"></i> Standards Enforcement</h4>
+                            <ul>
+                                <li>Public toilet facility standards</li>
+                                <li>Waste disposal compliance</li>
+                                <li>Sanitation code enforcement</li>
+                                <li>Environmental health regulations</li>
+                            </ul>
                         </div>
                     </div>
+                </div>
 
-                    <!-- Service 3 -->
-                    <div class="service-card">
+                <!-- Disease Prevention -->
+                <div class="service-item">
+                    <div class="service-header">
                         <div class="service-icon">
                             <i class="fas fa-virus"></i>
                         </div>
-                        <div class="service-info">
-                            <h3 class="service-title">Disease Prevention & Control</h3>
-                            <p class="service-description">
-                                Surveillance, prevention, and control of communicable diseases through vaccination programs and public health education.
-                            </p>
-                            <a href="#" class="btn">Learn More</a>
+                        <h2 class="service-title">Disease Prevention & Control</h2>
+                    </div>
+                    <p class="service-description">
+                        Surveillance, prevention, and control of communicable diseases in the community through vaccination programs, outbreak response, and public health education initiatives.
+                    </p>
+                    <div class="service-details">
+                        <div class="detail-category">
+                            <h4><i class="fas fa-syringe"></i> Vaccination Programs</h4>
+                            <ul>
+                                <li>Regular immunization campaigns</li>
+                                <li>Child and adult vaccination services</li>
+                                <li>Outbreak response vaccination</li>
+                                <li>Vaccine-preventable disease control</li>
+                            </ul>
+                        </div>
+                        <div class="detail-category">
+                            <h4><i class="fas fa-head-side-mask"></i> Disease Control</h4>
+                            <ul>
+                                <li>Disease outbreak response teams</li>
+                                <li>Epidemiological surveillance</li>
+                                <li>Vector control programs</li>
+                                <li>Infection prevention measures</li>
+                            </ul>
                         </div>
                     </div>
+                </div>
 
-                    <!-- Service 4 -->
-                    <div class="service-card">
+                <!-- Waste Management Section -->
+                <div class="service-item">
+                    <div class="service-header">
                         <div class="service-icon">
-                            <i class="fas fa-clinic-medical"></i>
+                            <i class="fas fa-trash-alt"></i>
                         </div>
-                        <div class="service-info">
-                            <h3 class="service-title">Health Facility Supervision</h3>
-                            <p class="service-description">
-                                Regular inspection and monitoring of health facilities to ensure quality healthcare services and compliance with standards.
-                            </p>
-                            <a href="#" class="btn">Learn More</a>
-                        </div>
+                        <h2 class="service-title">Waste Management</h2>
                     </div>
-
-                    <!-- Service 5 -->
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <i class="fas fa-hand-holding-heart"></i>
+                    <p class="service-description">
+                        Comprehensive waste management services to maintain cleanliness, prevent environmental pollution, and promote public health through proper collection, disposal, and recycling initiatives.
+                    </p>
+                    <div class="service-details">
+                        <div class="detail-category">
+                            <h4><i class="fas fa-truck"></i> Collection Services</h4>
+                            <ul>
+                                <li>Regular household waste collection</li>
+                                <li>Commercial waste management</li>
+                                <li>Special waste collection programs</li>
+                                <li>Hazardous waste handling</li>
+                            </ul>
                         </div>
-                        <div class="service-info">
-                            <h3 class="service-title">Health Education & Promotion</h3>
-                            <p class="service-description">
-                                Community outreach programs, health campaigns, and educational materials to promote healthy lifestyles and preventive care.
-                            </p>
-                            <a href="#" class="btn">Learn More</a>
+                        <div class="detail-category">
+                            <h4><i class="fas fa-recycle"></i> Recycling & Disposal</h4>
+                            <ul>
+                                <li>Community recycling programs</li>
+                                <li>Waste segregation education</li>
+                                <li>Landfill management</li>
+                                <li>Composting initiatives</li>
+                            </ul>
                         </div>
-                    </div>
-
-                    <!-- Service 6 -->
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <i class="fas fa-dumpster"></i>
-                        </div>
-                        <div class="service-info">
-                            <h3 class="service-title">Solid Waste Management</h3>
-                            <p class="service-description">
-                                Oversight of waste collection, disposal systems, and promotion of proper waste management practices to prevent environmental health hazards.
-                            </p>
-                            <a href="#" class="btn">Learn More</a>
+                        <div class="detail-category">
+                            <h4><i class="fas fa-leaf"></i> Environmental Protection</h4>
+                            <ul>
+                                <li>Illegal dumping prevention</li>
+                                <li>Waste reduction campaigns</li>
+                                <li>Environmental impact monitoring</li>
+                                <li>Clean-up community programs</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -897,41 +1008,11 @@
             <!-- Health Team Section -->
             <div class="health-team">
                 <div class="section-title">
-                    <h2>Our Team</h2>
-                    <p>Meet the dedicated public health professionals serving Kayunga</p>
+                    <h2>Meet the Third Member of Our Team</h2>
+                    <p>Our dedicated public health professionals serving Kayunga</p>
                 </div>
 
                 <div class="team-grid">
-                    <!-- Team Member 1 -->
-                    <div class="team-card">
-                        <div class="team-image">
-                            <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Public Health Officer">
-                        </div>
-                        <div class="team-info">
-                            <h3 class="team-name">Mr. Muonge Evans</h3>
-                            <p class="team-position">Public Health Officer</p>
-                            <div class="team-contact">
-                                <a href="#" class="contact-icon"><i class="fas fa-phone"></i></a>
-                                <a href="#" class="contact-icon"><i class="fas fa-envelope"></i></a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Team Member 2 -->
-                    <div class="team-card">
-                        <div class="team-image">
-                            <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Public Health Officer">
-                        </div>
-                        <div class="team-info">
-                            <h3 class="team-name">Ms. Nakyobe Annet Rhoda</h3>
-                            <p class="team-position">Public Health Officer</p>
-                            <div class="team-contact">
-                                <a href="#" class="contact-icon"><i class="fas fa-phone"></i></a>
-                                <a href="#" class="contact-icon"><i class="fas fa-envelope"></i></a>
-                            </div>
-                        </div>
-                    </div>
-
                     <!-- Team Member 3 -->
                     <div class="team-card">
                         <div class="team-image">
@@ -940,21 +1021,6 @@
                         <div class="team-info">
                             <h3 class="team-name">Mr. John Ssebunya</h3>
                             <p class="team-position">Health Inspector</p>
-                            <div class="team-contact">
-                                <a href="#" class="contact-icon"><i class="fas fa-phone"></i></a>
-                                <a href="#" class="contact-icon"><i class="fas fa-envelope"></i></a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Team Member 4 -->
-                    <div class="team-card">
-                        <div class="team-image">
-                            <img src="https://images.unsplash.com/photo-1551601651-2a8555f1a136?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Health Educator">
-                        </div>
-                        <div class="team-info">
-                            <h3 class="team-name">Ms. Grace Nakato</h3>
-                            <p class="team-position">Health Educator</p>
                             <div class="team-contact">
                                 <a href="#" class="contact-icon"><i class="fas fa-phone"></i></a>
                                 <a href="#" class="contact-icon"><i class="fas fa-envelope"></i></a>
@@ -982,7 +1048,7 @@
                             <p class="program-description">
                                 Regular vaccination campaigns for children and adults to prevent vaccine-preventable diseases and protect community health.
                             </p>
-                            <a href="#" class="btn btn-health">Get Vaccinated</a>
+                            <a href="#" class="btn">Get Vaccinated</a>
                         </div>
                     </div>
 
@@ -996,7 +1062,7 @@
                             <p class="program-description">
                                 Distribution of mosquito nets, indoor residual spraying, and community education to reduce malaria transmission.
                             </p>
-                            <a href="#" class="btn btn-health">Learn More</a>
+                            <a href="#" class="btn">Learn More</a>
                         </div>
                     </div>
 
@@ -1010,7 +1076,7 @@
                             <p class="program-description">
                                 Prevention education, testing services, and support programs for people living with HIV/AIDS in our community.
                             </p>
-                            <a href="#" class="btn btn-health">Get Tested</a>
+                            <a href="#" class="btn">Get Tested</a>
                         </div>
                     </div>
                 </div>
