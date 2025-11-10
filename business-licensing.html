@@ -6,7 +6,6 @@
     <title>Business Licensing - Kayunga Town Council</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* All previous CSS styles remain the same */
         * {
             margin: 0;
             padding: 0;
@@ -47,7 +46,7 @@
 
         .btn {
             display: inline-block;
-            padding: 10px 20px;
+            padding: 12px 25px;
             background: var(--primary);
             color: white;
             border-radius: 4px;
@@ -55,11 +54,13 @@
             transition: all 0.3s ease;
             border: none;
             cursor: pointer;
+            font-size: 16px;
         }
 
         .btn:hover {
             background: #003d7a;
             transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
 
         .btn-secondary {
@@ -69,6 +70,17 @@
 
         .btn-secondary:hover {
             background: #e6b800;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
         }
 
         .header-top {
@@ -257,8 +269,8 @@
         /* Business Licensing Hero Section */
         .business-hero {
             position: relative;
-            height: 200px;
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80');
+            height: 300px;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80');
             background-size: cover;
             background-position: center;
             color: white;
@@ -318,6 +330,143 @@
             color: var(--gray);
             max-width: 700px;
             margin: 20px auto 0;
+            font-size: 18px;
+        }
+
+        /* Enhanced Introduction Section */
+        .enhanced-intro {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 80px 0;
+            border-radius: 12px;
+            margin-bottom: 80px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .intro-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .intro-text {
+            padding-right: 20px;
+        }
+
+        .intro-text h2 {
+            font-size: 36px;
+            color: var(--primary);
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+
+        .intro-text p {
+            font-size: 18px;
+            line-height: 1.8;
+            color: var(--gray);
+            margin-bottom: 30px;
+        }
+
+        .intro-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .intro-feature {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+
+        .intro-feature i {
+            background: var(--primary);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+
+        .intro-feature h4 {
+            font-size: 18px;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        .intro-feature p {
+            font-size: 15px;
+            color: var(--gray);
+            margin: 0;
+        }
+
+        .intro-visual {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .intro-visual img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .intro-actions {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        /* Business Statistics Section */
+        .business-statistics {
+            background: var(--light);
+            padding: 60px 0;
+            margin-bottom: 60px;
+            border-radius: 12px;
+        }
+
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 40px 20px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-icon {
+            font-size: 48px;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .stat-number {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 18px;
+            color: var(--gray);
         }
 
         /* Services Layout - Not Tiled */
@@ -416,51 +565,6 @@
             font-weight: bold;
             position: absolute;
             left: 0;
-        }
-
-        /* Business Statistics Section */
-        .business-statistics {
-            background: var(--light);
-            padding: 60px 0;
-            margin-bottom: 80px;
-            border-radius: 12px;
-        }
-
-        .stats-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            text-align: center;
-        }
-
-        .stat-card {
-            background: white;
-            padding: 40px 20px;
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-            transition: transform 0.3s;
-        }
-
-        .stat-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .stat-icon {
-            font-size: 48px;
-            color: var(--primary);
-            margin-bottom: 20px;
-        }
-
-        .stat-number {
-            font-size: 36px;
-            font-weight: 700;
-            color: var(--primary);
-            margin-bottom: 10px;
-        }
-
-        .stat-label {
-            font-size: 18px;
-            color: var(--gray);
         }
 
         /* Licensing Team Section */
@@ -758,47 +862,151 @@
             margin-top: 25px;
         }
 
-        .detail-category {
-            background: white;
-            border-radius: 8px;
-            padding: 20px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        /* Process Steps */
+        .process-steps {
+            margin: 80px 0;
         }
 
-        .detail-category h4 {
-            color: var(--primary);
-            margin-bottom: 15px;
-            font-size: 18px;
+        .steps-container {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            margin-top: 50px;
+        }
+
+        .steps-container::before {
+            content: '';
+            position: absolute;
+            top: 40px;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: #e9ecef;
+            z-index: 1;
+        }
+
+        .step {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            flex: 1;
+        }
+
+        .step-number {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: white;
             display: flex;
             align-items: center;
-        }
-
-        .detail-category h4 i {
-            margin-right: 10px;
-            color: var(--secondary);
-        }
-
-        .detail-category ul {
-            list-style-type: none;
-        }
-
-        .detail-category li {
-            margin-bottom: 8px;
-            color: var(--gray);
-            line-height: 1.5;
-            padding-left: 20px;
-            position: relative;
-        }
-
-        .detail-category li:before {
-            content: "•";
-            color: var(--secondary);
+            justify-content: center;
+            font-size: 24px;
             font-weight: bold;
-            position: absolute;
-            left: 0;
+            margin: 0 auto 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .step-content {
+            padding: 0 15px;
+        }
+
+        .step-content h4 {
+            font-size: 18px;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .step-content p {
+            color: var(--gray);
+            font-size: 14px;
+        }
+
+        /* Benefits Section */
+        .benefits-section {
+            margin: 80px 0;
+            background: var(--light);
+            padding: 60px 0;
+            border-radius: 12px;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .benefit-card {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s;
+            text-align: center;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .benefit-icon {
+            font-size: 48px;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .benefit-card h3 {
+            font-size: 22px;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .benefit-card p {
+            color: var(--gray);
+            line-height: 1.6;
         }
 
         /* Mobile Responsiveness */
+        @media (max-width: 992px) {
+            .intro-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .intro-text {
+                padding-right: 0;
+            }
+            
+            .intro-features {
+                grid-template-columns: 1fr;
+            }
+            
+            .steps-container {
+                flex-direction: column;
+                gap: 30px;
+            }
+            
+            .steps-container::before {
+                display: none;
+            }
+            
+            .step {
+                display: flex;
+                align-items: flex-start;
+                text-align: left;
+            }
+            
+            .step-number {
+                margin: 0 20px 0 0;
+                flex-shrink: 0;
+            }
+            
+            .team-grid {
+                grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            }
+        }
+
         @media (max-width: 768px) {
             .header-main .container {
                 flex-wrap: wrap;
@@ -850,7 +1058,7 @@
             }
             
             .business-hero {
-                height: 200px;
+                height: 250px;
             }
             
             .business-hero h1 {
@@ -906,6 +1114,10 @@
             
             .emergency-contacts {
                 grid-template-columns: 1fr;
+            }
+            
+            .intro-actions {
+                flex-direction: column;
             }
         }
     </style>
@@ -1036,8 +1248,148 @@
                 </div>
             </div>
 
+            <!-- Enhanced Introduction Section -->
+            <div class="enhanced-intro">
+                <div class="container">
+                    <div class="intro-content">
+                        <div class="intro-text">
+                            <h2>Comprehensive Business Licensing Services</h2>
+                            <p>Kayunga Town Council provides comprehensive business registration and licensing services for new and existing businesses. We ensure all businesses operate legally and comply with local regulations, creating a thriving business environment that benefits our entire community.</p>
+                            
+                            <p>Our dedicated licensing team works closely with entrepreneurs to streamline the registration process, provide guidance on compliance requirements, and support business growth initiatives throughout Kayunga.</p>
+                            
+                            <div class="intro-features">
+                                <div class="intro-feature">
+                                    <i class="fas fa-check-circle"></i>
+                                    <div>
+                                        <h4>Streamlined Process</h4>
+                                        <p>Simplified application and approval procedures</p>
+                                    </div>
+                                </div>
+                                <div class="intro-feature">
+                                    <i class="fas fa-shield-alt"></i>
+                                    <div>
+                                        <h4>Compliance Support</h4>
+                                        <p>Guidance on all regulatory requirements</p>
+                                    </div>
+                                </div>
+                                <div class="intro-feature">
+                                    <i class="fas fa-hand-holding-usd"></i>
+                                    <div>
+                                        <h4>Transparent Fees</h4>
+                                        <p>Clear, affordable pricing with no hidden costs</p>
+                                    </div>
+                                </div>
+                                <div class="intro-feature">
+                                    <i class="fas fa-headset"></i>
+                                    <div>
+                                        <h4>Dedicated Support</h4>
+                                        <p>Expert assistance throughout the licensing process</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="intro-actions">
+                                <a href="#license-types" class="btn">View License Types</a>
+                                <a href="#fee-structure" class="btn btn-outline">Fee Structure</a>
+                            </div>
+                        </div>
+                        <div class="intro-visual">
+                            <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Business Licensing Process">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Process Steps Section -->
+            <div class="process-steps">
+                <div class="section-title">
+                    <h2>Simple Application Process</h2>
+                    <p>Follow these straightforward steps to obtain your business license</p>
+                </div>
+                
+                <div class="steps-container">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h4>Application Submission</h4>
+                            <p>Complete the application form with required documentation</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h4>Document Review</h4>
+                            <p>Our team verifies your submission and checks for compliance</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h4>Site Inspection</h4>
+                            <p>Physical inspection of business premises (if required)</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h4>Fee Payment</h4>
+                            <p>Pay the applicable license fees at designated banks</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">5</div>
+                        <div class="step-content">
+                            <h4>License Issuance</h4>
+                            <p>Receive your official business license certificate</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Benefits Section -->
+            <div class="benefits-section">
+                <div class="container">
+                    <div class="section-title">
+                        <h2>Benefits of Proper Licensing</h2>
+                        <p>Operating with a valid license provides numerous advantages for your business</p>
+                    </div>
+                    
+                    <div class="benefits-grid">
+                        <div class="benefit-card">
+                            <div class="benefit-icon">
+                                <i class="fas fa-gavel"></i>
+                            </div>
+                            <h3>Legal Compliance</h3>
+                            <p>Operate within the law and avoid penalties, fines, or business closure due to non-compliance with local regulations.</p>
+                        </div>
+                        <div class="benefit-card">
+                            <div class="benefit-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <h3>Consumer Trust</h3>
+                            <p>Build credibility and trust with customers who prefer to do business with properly licensed establishments.</p>
+                        </div>
+                        <div class="benefit-card">
+                            <div class="benefit-icon">
+                                <i class="fas fa-handshake"></i>
+                            </div>
+                            <h3>Business Opportunities</h3>
+                            <p>Access to government tenders, partnerships, and funding opportunities reserved for licensed businesses.</p>
+                        </div>
+                        <div class="benefit-card">
+                            <div class="benefit-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <h3>Growth Support</h3>
+                            <p>Receive guidance and support from our business development team to help your enterprise grow.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <!-- License Types Section -->
-            <div class="license-types-section">
+            <div class="license-types-section" id="license-types">
                 <div class="section-title">
                     <h2>Types of Business Licenses</h2>
                     <p>Understanding the different licenses required for business operations in Kayunga</p>
@@ -1090,52 +1442,6 @@
                                 </li>
                             </ul>
                         </div>
-                        <div class="detail-category">
-                            <h4><i class="fas fa-file-alt"></i> Requirements for Application</h4>
-                            <ul>
-                                <li><strong>Nationals:</strong>
-                                    <ul>
-                                        <li>Identification: passport/ Driving permit/Voter's card</li>
-                                        <li>Original Trading License for the previous year for already existing business</li>
-                                        <li>Original receipt for the previous year for already existing business</li>
-                                        <li>Original certificate of incorporation of the company for new business</li>
-                                        <li>Original rent receipt and tenancy agreement from the land lord for new business</li>
-                                        <li>The client must be of at least 18 yrs of age and if a minor, should be in partnership with a person above 18 years of age</li>
-                                    </ul>
-                                </li>
-                                <li><strong>Non Nationals:</strong>
-                                    <ul>
-                                        <li>Clearance from Ministry of Trade, Industry and Cooperatives</li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="detail-category">
-                            <h4><i class="fas fa-calculator"></i> Assessment and Payment</h4>
-                            <ul>
-                                <li>Assessment is done based on the fees schedules issued by the Minister of Trade, Industry and Cooperatives</li>
-                                <li>A Revenue Officer issues a Bank Payment Advice Form to make payment at any designated Banks</li>
-                                <li>A receipt is given which is presented at the Division offices where a trading license certificate is issued</li>
-                            </ul>
-                        </div>
-                        <div class="detail-category">
-                            <h4><i class="fas fa-calendar-alt"></i> Effective Date for Payment</h4>
-                            <ul>
-                                <li>This is a Calendar year based tax payable before commencement of business every 1st day of January of every year and expires on the 31st of December of the same year</li>
-                            </ul>
-                        </div>
-                        <div class="detail-category">
-                            <h4><i class="fas fa-exclamation-triangle"></i> What if I do not pay?</h4>
-                            <ul>
-                                <li>Any person who fails to pay or obstructs or hinders an officer on duty, or knowingly makes a false declaration or gives any false information commits an offence and is liable on conviction to a fine or to a term of imprisonment not exceeding six months or both</li>
-                            </ul>
-                        </div>
-                        <div class="detail-category">
-                            <h4><i class="fas fa-gavel"></i> Governing Law</h4>
-                            <ul>
-                                <li>Trade Licensing Act 1969 Cap 101</li>
-                            </ul>
-                        </div>
                     </div>
                 </div>
 
@@ -1164,23 +1470,23 @@
                             </ul>
                         </div>
                         <div class="detail-category">
-                            <h4><i class="fas fa-clipboard-check"></i> Permit Requirements</h4>
+                            <h4><i class="fas fa-user-check"></i> Who is eligible to pay?</h4>
                             <ul>
-                                <li>Proof of business registration</li>
-                                <li>Site plan and building approval</li>
-                                <li>Environmental impact assessment (where applicable)</li>
-                                <li>Health and safety compliance certificate</li>
-                                <li>Fire safety inspection report</li>
-                                <li>Proof of payment of applicable fees</li>
+                                <li>Any person carrying out business in Kayunga Town Council's jurisdiction except those who are exempted under Section 8(2) of the Trade Licensing Act.</li>
+                                <li>The exempted businesses include:
+                                    <ul>
+                                        <li>Any trade carried on in a market</li>
+                                        <li>The trade of a planter, farmer, gardener, dairy person or agriculturist in respect of sale of his or her own dairy or agriculture produce</li>
+                                        <li>The trade of a person in respect of goods bonafide made by him or her by his or her handicraft in or any premises where he or she normally resides, or by the handicraft of persons normally residing with him or her or who are his or employees or members of his or her family</li>
+                                    </ul>
+                                </li>
                             </ul>
                         </div>
                         <div class="detail-category">
-                            <h4><i class="fas fa-sync-alt"></i> Renewal Process</h4>
+                            <h4><i class="fas fa-question-circle"></i> Why pay operational permit fees?</h4>
                             <ul>
-                                <li>Operational permits are typically valid for one year</li>
-                                <li>Renewal applications should be submitted 30 days before expiration</li>
-                                <li>Businesses must demonstrate continued compliance with regulations</li>
-                                <li>Updated inspection reports may be required for renewal</li>
+                                <li>It's a Legal requirement for any person selling goods and services as provided for by the Licensing Act CAP 101 to enable Kayunga Town Council regulate trade and order.</li>
+                                <li>Besides the regulatory role, payment of operational permit fees contributes towards the financing of service delivery in Kayunga.</li>
                             </ul>
                         </div>
                     </div>
@@ -1352,11 +1658,41 @@
                             </div>
                         </div>
                     </div>
+
+                    <!-- Team Member 4 -->
+                    <div class="team-card">
+                        <div class="team-image">
+                            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Inspection Officer">
+                        </div>
+                        <div class="team-info">
+                            <h3 class="team-name">Mr. David Kato</h3>
+                            <p class="team-position">Inspection Officer</p>
+                            <div class="team-contact">
+                                <a href="#" class="contact-icon"><i class="fas fa-phone"></i></a>
+                                <a href="#" class="contact-icon"><i class="fas fa-envelope"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Team Member 5 -->
+                    <div class="team-card">
+                        <div class="team-image">
+                            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Customer Service Officer">
+                        </div>
+                        <div class="team-info">
+                            <h3 class="team-name">Ms. Maria Nabukenya</h3>
+                            <p class="team-position">Customer Service Officer</p>
+                            <div class="team-contact">
+                                <a href="#" class="contact-icon"><i class="fas fa-phone"></i></a>
+                                <a href="#" class="contact-icon"><i class="fas fa-envelope"></i></a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
             <!-- Fee Structure Section -->
-            <div class="fee-structure">
+            <div class="fee-structure" id="fee-structure">
                 <div class="section-title">
                     <h2>License Fee Structure</h2>
                     <p>Transparent and affordable licensing fees for businesses in Kayunga</p>
