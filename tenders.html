@@ -1,0 +1,1242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tenders - Kayunga Town Council</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary: #0056a6;
+            --secondary: #ffcc00;
+            --accent: #e63946;
+            --dark: #333;
+            --light: #f8f9fa;
+            --gray: #6c757d;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background: var(--primary);
+            color: white;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: #003d7a;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: var(--secondary);
+            color: var(--dark);
+        }
+
+        .btn-secondary:hover {
+            background: #e6b800;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .header-top {
+            background: var(--primary);
+            color: white;
+            padding: 8px 0;
+            font-size: 14px;
+        }
+
+        .header-top .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .social-links a {
+            margin-left: 15px;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: var(--secondary);
+        }
+
+        .header-main {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-main .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.02);
+        }
+
+        .logo:hover .logo-text h1 {
+            color: var(--primary);
+        }
+
+        .logo img {
+            height: 60px;
+            margin-right: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover img {
+            transform: scale(1.05);
+        }
+
+        .logo-text h1 {
+            font-size: 24px;
+            color: var(--primary);
+            line-height: 1.2;
+            transition: color 0.3s ease;
+        }
+
+        .logo-text span {
+            font-size: 14px;
+            color: var(--gray);
+        }
+
+        .search-box {
+            display: flex;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .search-box input {
+            padding: 8px 12px;
+            border: none;
+            width: 250px;
+        }
+
+        .search-box button {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 0 15px;
+            cursor: pointer;
+        }
+
+        .main-nav {
+            background: var(--primary);
+        }
+
+        .main-nav .container {
+            position: relative;
+        }
+
+        .main-nav ul {
+            display: flex;
+        }
+
+        .main-nav li {
+            position: relative;
+        }
+
+        .main-nav a {
+            color: white;
+            padding: 15px 20px;
+            display: block;
+            font-weight: 500;
+            transition: background 0.3s;
+        }
+
+        .main-nav a:hover {
+            background: rgba(255,255,255,0.1);
+        }
+
+        /* Dropdown Menu Styles */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            background: white;
+            min-width: 250px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            display: none;
+            z-index: 100;
+            top: 100%;
+            left: 0;
+            border-radius: 0 0 4px 4px;
+            overflow: hidden;
+        }
+
+        .dropdown-menu a {
+            color: var(--dark);
+            border-bottom: 1px solid #eee;
+            padding: 12px 20px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+        }
+
+        .dropdown-menu a i {
+            margin-right: 10px;
+            width: 20px;
+            text-align: center;
+            color: var(--primary);
+        }
+
+        .dropdown-menu a:hover {
+            background: var(--light);
+            color: var(--primary);
+            padding-left: 25px;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown > a::after {
+            content: ' ▾';
+            font-size: 12px;
+            margin-left: 5px;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: var(--primary);
+            cursor: pointer;
+        }
+
+        /* Tenders Hero Section */
+        .tenders-hero {
+            position: relative;
+            height: 400px;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1553877522-43269d4ea984?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            display: flex;
+            align-items: center;
+            text-align: center;
+        }
+
+        .tenders-hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .tenders-hero h2 {
+            font-size: 42px;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .tenders-hero p {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        /* Timeline Banner */
+        .timeline-banner {
+            background: var(--secondary);
+            color: var(--dark);
+            padding: 20px 0;
+            text-align: center;
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+
+        /* Tenders Section */
+        .tenders-section {
+            padding: 80px 0;
+            background: var(--light);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-header h2 {
+            font-size: 36px;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .section-header p {
+            font-size: 18px;
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .tenders-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .tender-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+
+        .tender-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+
+        .tender-header {
+            background: var(--primary);
+            color: white;
+            padding: 20px;
+        }
+
+        .tender-header h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+
+        .tender-ref {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .tender-body {
+            padding: 25px;
+        }
+
+        .tender-description {
+            margin-bottom: 20px;
+            color: var(--gray);
+        }
+
+        .tender-details {
+            margin-bottom: 25px;
+        }
+
+        .tender-details h4 {
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .tender-details ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+
+        .tender-details li {
+            margin-bottom: 8px;
+            color: var(--gray);
+        }
+
+        .tender-footer {
+            padding: 20px 25px;
+            background: #f8f9fa;
+            border-top: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .tender-status {
+            display: inline-block;
+            background: var(--secondary);
+            color: var(--dark);
+            padding: 6px 12px;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        /* Application Process Section */
+        .application-section {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .application-process {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            padding: 40px;
+        }
+
+        .application-process h3 {
+            color: var(--primary);
+            margin-bottom: 25px;
+            font-size: 28px;
+            text-align: center;
+        }
+
+        .process-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .process-step {
+            display: flex;
+            gap: 20px;
+        }
+
+        .step-number {
+            background: var(--primary);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .step-content h4 {
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .step-content p {
+            color: var(--gray);
+        }
+
+        /* Stats Section */
+        .stats {
+            padding: 60px 0;
+            background: var(--primary);
+            color: white;
+            text-align: center;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+
+        .stat-item {
+            padding: 20px;
+        }
+
+        .stat-number {
+            font-size: 48px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: var(--secondary);
+        }
+
+        .stat-label {
+            font-size: 18px;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--dark);
+            color: white;
+            padding: 60px 0 0;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--secondary);
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #bbb;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary);
+        }
+
+        .contact-info li {
+            display: flex;
+            margin-bottom: 15px;
+        }
+
+        .contact-info i {
+            margin-right: 10px;
+            color: var(--secondary);
+        }
+
+        .footer-bottom {
+            background: #222;
+            padding: 20px 0;
+            text-align: center;
+            color: #bbb;
+            font-size: 14px;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 600px;
+            max-height: 80vh;
+            overflow-y: auto;
+            padding: 30px;
+            position: relative;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--gray);
+        }
+
+        .close-modal:hover {
+            color: var(--accent);
+        }
+
+        .modal-header {
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .modal-header h3 {
+            color: var(--primary);
+            font-size: 24px;
+        }
+
+        .modal-body {
+            margin-bottom: 25px;
+        }
+
+        .modal-body h4 {
+            color: var(--primary);
+            margin: 20px 0 10px;
+        }
+
+        .modal-body ul {
+            list-style-type: disc;
+            padding-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        .modal-body li {
+            margin-bottom: 8px;
+            color: var(--gray);
+        }
+
+        .modal-footer {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .header-main .container {
+                flex-wrap: wrap;
+            }
+            
+            .logo {
+                margin-bottom: 15px;
+            }
+            
+            .search-box {
+                width: 100%;
+                margin-top: 15px;
+            }
+            
+            .search-box input {
+                width: 100%;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .main-nav {
+                display: none;
+            }
+            
+            .main-nav.active {
+                display: block;
+            }
+            
+            .main-nav ul {
+                flex-direction: column;
+            }
+            
+            .dropdown-menu {
+                position: static;
+                box-shadow: none;
+                background: rgba(255,255,255,0.1);
+                display: none;
+            }
+            
+            .dropdown.active .dropdown-menu {
+                display: block;
+            }
+            
+            .dropdown > a::after {
+                content: ' ▾';
+                float: right;
+            }
+            
+            .tenders-hero {
+                height: 300px;
+            }
+            
+            .tenders-hero h2 {
+                font-size: 30px;
+            }
+            
+            .header-top .container {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .social-links {
+                margin-top: 5px;
+            }
+            
+            .tenders-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .tender-footer {
+                flex-direction: column;
+                gap: 15px;
+                align-items: flex-start;
+            }
+            
+            .process-step {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .step-number {
+                align-self: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header-top">
+        <div class="container">
+            <div class="contact-info">
+                <span><i class="fas fa-phone"></i> +256 414 231 200</span>
+                <span style="margin-left: 20px;"><i class="fas fa-envelope"></i>tckayunga@yahoo.com</span>
+            </div>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <header class="header-main">
+        <div class="container">
+            <a href="index.html" class="logo" title="Return to Home">
+                <img src="national-coat-of-arms-of-the-republic-of-uganda-DTK91D.jpg" alt="Uganda Coat of Arms">
+                <div class="logo-text">
+                    <h1>KAYUNGA TOWN COUNCIL</h1>
+                    <span>Advancing Together for a Greater Kayunga</span>
+                </div>
+            </a>
+            <div class="search-box">
+                <input type="text" placeholder="Search...">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <nav class="main-nav">
+        <div class="container">
+            <ul>
+                <li class="dropdown">
+                    <a href="#">About US</a>
+                    <div class="dropdown-menu">
+                        <a href="history and background.html"><i class="fas fa-info-circle" ></i>About Us</a>
+                        <a href="leadership.html"><i class="fas fa-users"></i>Leadership</a>
+                        <a href="departments.html"><i class="fas fa-building"></i>Departments</a>
+                        <a href="vision-mission.html"><i class="fas fa-bullseye"></i>Vision & Mission</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#">Services</a>
+                    <div class="dropdown-menu">
+                        <a href="public-health.html"><i class="fas fa-heartbeat"></i>Public Health</a>
+                        <a href="public-health.html"><i class="fas fa-trash-alt"></i>Waste Management</a>
+                        <a href="road-maintenance.html"><i class="fas fa-road"></i>Road Maintenance and Public Infrastructure</a>
+                        <a href="business-licensing.html"><i class="fas fa-file-contract"></i>Business Licensing</a>
+                        <a href="education.html"><i class="fas fa-graduation-cap"></i>Education</a>
+                        <a href="youth-community.html"><i class="fas fa-hands-helping"></i>Youth & Community Development</a>
+                    </div>
+                </li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="#" style="background: rgba(255,255,255,0.1);">Tenders</a></li>
+                <li><a href="#">Careers</a></li>
+                <li><a href="#">Witzenhausen</a></li>
+                <li><a href="#">FAQS</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Tenders Hero Section -->
+    <section class="tenders-hero">
+        <div class="container">
+            <div class="tenders-hero-content">
+                <h2>Current Tenders & Bidding Opportunities</h2>
+                <p>Explore available tenders and participate in the development of Kayunga Town through transparent procurement processes.</p>
+                <a href="#current-tenders" class="btn btn-secondary">View Tenders</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Banner -->
+    <section class="timeline-banner">
+        <div class="container">
+            <p><i class="fas fa-calendar-alt"></i> Application Timeline: All tenders are open during the first quarter of the financial year (July - September)</p>
+        </div>
+    </section>
+
+    <!-- Current Tenders Section -->
+    <section class="tenders-section" id="current-tenders">
+        <div class="container">
+            <div class="section-header">
+                <h2>Current Tenders</h2>
+                <p>Browse through our available tenders and submit your applications during the open period</p>
+            </div>
+            
+            <div class="tenders-grid">
+                <!-- Tender 1 -->
+                <div class="tender-card">
+                    <div class="tender-header">
+                        <h3>Collection of Property Taxes</h3>
+                        <div class="tender-ref">Ref: KTC/PT/2024/001</div>
+                    </div>
+                    <div class="tender-body">
+                        <p class="tender-description">Contract for the collection of property taxes within Kayunga Town Council jurisdiction for the financial year 2024/2025.</p>
+                        
+                        <div class="tender-details">
+                            <h4>Requirements:</h4>
+                            <ul>
+                                <li>Registered company with URSB</li>
+                                <li>Valid trading license</li>
+                                <li>Tax clearance certificate</li>
+                                <li>Experience in revenue collection</li>
+                                <li>Bank statement showing financial capability</li>
+                                <li>Proposed collection methodology</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="tender-footer">
+                        <span class="tender-status">Open for Applications</span>
+                        <button class="btn btn-outline" onclick="openTenderModal('property-taxes')">Apply Now</button>
+                    </div>
+                </div>
+                
+                <!-- Tender 2 -->
+                <div class="tender-card">
+                    <div class="tender-header">
+                        <h3>Collection of Parking Fees</h3>
+                        <div class="tender-ref">Ref: KTC/PF/2024/002</div>
+                    </div>
+                    <div class="tender-body">
+                        <p class="tender-description">Management and collection of parking fees from designated parking areas within Kayunga Town.</p>
+                        
+                        <div class="tender-details">
+                            <h4>Requirements:</h4>
+                            <ul>
+                                <li>Registered business entity</li>
+                                <li>Valid trading license</li>
+                                <li>Experience in parking management</li>
+                                <li>Security bond/guarantee</li>
+                                <li>Staffing plan with trained personnel</li>
+                                <li>Proposed fee collection system</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="tender-footer">
+                        <span class="tender-status">Open for Applications</span>
+                        <button class="btn btn-outline" onclick="openTenderModal('parking-fees')">Apply Now</button>
+                    </div>
+                </div>
+                
+                <!-- Tender 3 -->
+                <div class="tender-card">
+                    <div class="tender-header">
+                        <h3>Collection of Market Dues</h3>
+                        <div class="tender-ref">Ref: KTC/MD/2024/003</div>
+                    </div>
+                    <div class="tender-body">
+                        <p class="tender-description">Collection of daily market dues from vendors at Kayunga Central Market and other satellite markets.</p>
+                        
+                        <div class="tender-details">
+                            <h4>Requirements:</h4>
+                            <ul>
+                                <li>Registered company or cooperative</li>
+                                <li>Valid trading license</li>
+                                <li>Experience in market management</li>
+                                <li>Financial capability proof</li>
+                                <li>Proposed collection schedule</li>
+                                <li>Conflict resolution mechanism</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="tender-footer">
+                        <span class="tender-status">Open for Applications</span>
+                        <button class="btn btn-outline" onclick="openTenderModal('market-dues')">Apply Now</button>
+                    </div>
+                </div>
+                
+                <!-- Tender 4 -->
+                <div class="tender-card">
+                    <div class="tender-header">
+                        <h3>Collection of Abattoir Fees</h3>
+                        <div class="tender-ref">Ref: KTC/AF/2024/004</div>
+                    </div>
+                    <div class="tender-body">
+                        <p class="tender-description">Collection of fees per slaughter at the Kayunga Municipal Abattoir for the financial year 2024/2025.</p>
+                        
+                        <div class="tender-details">
+                            <h4>Requirements:</h4>
+                            <ul>
+                                <li>Registered business entity</li>
+                                <li>Valid trading license</li>
+                                <li>Knowledge of abattoir operations</li>
+                                <li>Public health certification</li>
+                                <li>Record keeping system</li>
+                                <li>Proposed fee structure</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="tender-footer">
+                        <span class="tender-status">Open for Applications</span>
+                        <button class="btn btn-outline" onclick="openTenderModal('abattoir-fees')">Apply Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Application Process Section -->
+    <section class="application-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>How to Apply</h2>
+                <p>Follow these steps to submit your tender application</p>
+            </div>
+            
+            <div class="application-process">
+                <h3>Application Process</h3>
+                <div class="process-steps">
+                    <div class="process-step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h4>Prepare Your Documents</h4>
+                            <p>Gather all required documents including company registration, tax clearance, trading license, and financial statements.</p>
+                        </div>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h4>Complete Application Form</h4>
+                            <p>Download and complete the tender application form available at the Town Council offices or on our website.</p>
+                        </div>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h4>Submit Your Proposal</h4>
+                            <p>Submit your completed application with all supporting documents to the Procurement Office at Kayunga Town Council.</p>
+                        </div>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h4>Evaluation Process</h4>
+                            <p>Applications will be evaluated by the procurement committee based on set criteria and qualifications.</p>
+                        </div>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">5</div>
+                        <div class="step-content">
+                            <h4>Award Notification</h4>
+                            <p>Successful bidders will be notified and contracts will be awarded within 30 days of application deadline.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">4</div>
+                    <div class="stat-label">Active Tenders</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">90</div>
+                    <div class="stat-label">Days to Apply</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Transparent Process</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">30</div>
+                    <div class="stat-label">Days Evaluation</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>Emergency Contacts</h3>
+                     <ul class="contact-info">
+                        <li><i class="fas fa-ambulance"></i>Medical Emergency: 112</li>
+                        <li><i class="fas fa-fire-extinguisher"></i>Fire Department: 111</li>
+                        <li><i class="fas fa-shield-alt"></i>Police: 999</li>
+                        <li><i class="fas fa-tools"></i>Help Desk: 0750858803</li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="#">Projects</a></li>
+                        <li><a href="#">Tenders</a></li>
+                        <li><a href="#">Media Center</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="public-health.html">Public Health</a></li>
+                        <li><a href="waste-management.html">Waste Management</a></li>
+                        <li><a href="road-maintenance.html">Road Maintenance</a></li>
+                        <li><a href="business-licensing.html">Business Licensing</a></li>
+                        <li><a href="education.html">Education</a></li>
+                        <li><a href="youth-community.html">Youth & Community Development</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact Us</h3>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-map-marker-alt"></i> Mumyuka Road Opp Kayunga Regional Referral Hospital, Kayunga</li>
+                        <li><i class="fas fa-phone"></i> +256 414 231 200</li>
+                        <li><i class="fas fa-envelope"></i>tckayunga@yahoo.com</li>
+                        <li><i class="fas fa-clock"></i> Mon-Fri: 8:00AM - 5:00PM</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2025 Kayunga Town Council. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Tender Application Modal -->
+    <div class="modal" id="tenderModal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeTenderModal()">&times;</span>
+            <div class="modal-header">
+                <h3 id="modalTitle">Tender Application</h3>
+            </div>
+            <div class="modal-body" id="modalBody">
+                <!-- Content will be dynamically inserted here -->
+            </div>
+            <div class="modal-footer">
+                <p>Submit your complete application to the Procurement Office at Kayunga Town Council</p>
+                <button class="btn" onclick="closeTenderModal()">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Mobile menu functionality
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            document.querySelector('.main-nav').classList.toggle('active');
+        });
+
+        // Dropdown functionality for mobile
+        const dropdowns = document.querySelectorAll('.dropdown');
+        dropdowns.forEach(dropdown => {
+            dropdown.addEventListener('click', function(e) {
+                if (window.innerWidth <= 768) {
+                    e.preventDefault();
+                    this.classList.toggle('active');
+                }
+            });
+        });
+
+        // Tender modal functionality
+        function openTenderModal(tenderType) {
+            const modal = document.getElementById('tenderModal');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalBody = document.getElementById('modalBody');
+            
+            let title = '';
+            let content = '';
+            
+            switch(tenderType) {
+                case 'property-taxes':
+                    title = 'Collection of Property Taxes - Application';
+                    content = `
+                        <h4>Tender Reference: KTC/PT/2024/001</h4>
+                        <p>Submit your application for the collection of property taxes within Kayunga Town Council.</p>
+                        
+                        <h4>Application Requirements:</h4>
+                        <ul>
+                            <li>Completed tender application form</li>
+                            <li>Certificate of registration from URSB</li>
+                            <li>Valid trading license</li>
+                            <li>Tax clearance certificate</li>
+                            <li>Bank statements for the last 6 months</li>
+                            <li>Proof of experience in revenue collection</li>
+                            <li>Detailed proposed collection methodology</li>
+                            <li>Staffing plan with CVs of key personnel</li>
+                            <li>Financial proposal</li>
+                        </ul>
+                        
+                        <h4>Submission Deadline:</h4>
+                        <p>30th September 2024, 5:00 PM</p>
+                        
+                        <h4>Submission Address:</h4>
+                        <p>Procurement Office<br>
+                        Kayunga Town Council<br>
+                        Mumyuka Road<br>
+                        P.O. Box 45, Kayunga</p>
+                    `;
+                    break;
+                    
+                case 'parking-fees':
+                    title = 'Collection of Parking Fees - Application';
+                    content = `
+                        <h4>Tender Reference: KTC/PF/2024/002</h4>
+                        <p>Submit your application for the management and collection of parking fees in Kayunga Town.</p>
+                        
+                        <h4>Application Requirements:</h4>
+                        <ul>
+                            <li>Completed tender application form</li>
+                            <li>Certificate of business registration</li>
+                            <li>Valid trading license</li>
+                            <li>Proof of experience in parking management</li>
+                            <li>Security bond or bank guarantee</li>
+                            <li>Staffing plan with trained personnel details</li>
+                            <li>Proposed fee collection system description</li>
+                            <li>Maintenance plan for parking areas</li>
+                            <li>Financial proposal</li>
+                        </ul>
+                        
+                        <h4>Submission Deadline:</h4>
+                        <p>30th September 2024, 5:00 PM</p>
+                        
+                        <h4>Submission Address:</h4>
+                        <p>Procurement Office<br>
+                        Kayunga Town Council<br>
+                        Mumyuka Road<br>
+                        P.O. Box 45, Kayunga</p>
+                    `;
+                    break;
+                    
+                case 'market-dues':
+                    title = 'Collection of Market Dues - Application';
+                    content = `
+                        <h4>Tender Reference: KTC/MD/2024/003</h4>
+                        <p>Submit your application for the collection of market dues from Kayunga markets.</p>
+                        
+                        <h4>Application Requirements:</h4>
+                        <ul>
+                            <li>Completed tender application form</li>
+                            <li>Certificate of registration (company or cooperative)</li>
+                            <li>Valid trading license</li>
+                            <li>Proof of experience in market management</li>
+                            <li>Financial capability documentation</li>
+                            <li>Proposed collection schedule</li>
+                            <li>Conflict resolution mechanism proposal</li>
+                            <li>Record keeping system description</li>
+                            <li>Financial proposal</li>
+                        </ul>
+                        
+                        <h4>Submission Deadline:</h4>
+                        <p>30th September 2024, 5:00 PM</p>
+                        
+                        <h4>Submission Address:</h4>
+                        <p>Procurement Office<br>
+                        Kayunga Town Council<br>
+                        Mumyuka Road<br>
+                        P.O. Box 45, Kayunga</p>
+                    `;
+                    break;
+                    
+                case 'abattoir-fees':
+                    title = 'Collection of Abattoir Fees - Application';
+                    content = `
+                        <h4>Tender Reference: KTC/AF/2024/004</h4>
+                        <p>Submit your application for the collection of fees per slaughter at Kayunga Abattoir.</p>
+                        
+                        <h4>Application Requirements:</h4>
+                        <ul>
+                            <li>Completed tender application form</li>
+                            <li>Certificate of business registration</li>
+                            <li>Valid trading license</li>
+                            <li>Proof of knowledge in abattoir operations</li>
+                            <li>Public health certification</li>
+                            <li>Proposed record keeping system</li>
+                            <li>Staff training plan</li>
+                            <li>Proposed fee structure</li>
+                            <li>Financial proposal</li>
+                        </ul>
+                        
+                        <h4>Submission Deadline:</h4>
+                        <p>30th September 2024, 5:00 PM</p>
+                        
+                        <h4>Submission Address:</h4>
+                        <p>Procurement Office<br>
+                        Kayunga Town Council<br>
+                        Mumyuka Road<br>
+                        P.O. Box 45, Kayunga</p>
+                    `;
+                    break;
+            }
+            
+            modalTitle.textContent = title;
+            modalBody.innerHTML = content;
+            modal.style.display = 'flex';
+        }
+
+        function closeTenderModal() {
+            document.getElementById('tenderModal').style.display = 'none';
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('tenderModal');
+            if (event.target == modal) {
+                closeTenderModal();
+            }
+        }
+    </script>
+</body>
+</html>
