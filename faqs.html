@@ -299,13 +299,6 @@
             gap: 15px;
             margin-bottom: 40px;
             justify-content: center;
-            position: sticky;
-            top: 120px;
-            background: white;
-            padding: 15px;
-            z-index: 100;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            border-radius: 8px;
         }
 
         .category-btn {
@@ -325,26 +318,55 @@
         }
 
         .faq-section {
-            margin-bottom: 50px;
-            scroll-margin-top: 180px;
+            margin-bottom: 20px;
+            scroll-margin-top: 120px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .faq-section:hover {
+            border-color: var(--primary);
         }
 
         .faq-section h2 {
             color: var(--primary);
-            margin-bottom: 25px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid var(--secondary);
+            padding: 20px;
             display: flex;
             align-items: center;
-            gap: 10px;
+            justify-content: space-between;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background-color: var(--light);
+            margin: 0;
+        }
+
+        .faq-section h2:hover {
+            background-color: #e9ecef;
         }
 
         .faq-section h2 i {
             color: var(--secondary);
+            transition: transform 0.3s ease;
+        }
+
+        .faq-section.active h2 i {
+            transform: rotate(180deg);
+        }
+
+        .faq-list {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+        }
+
+        .faq-section.active .faq-list {
+            max-height: 5000px;
         }
 
         .faq-item {
-            margin-bottom: 15px;
+            margin: 15px;
             border-radius: 8px;
             overflow: hidden;
             box-shadow: 0 3px 10px rgba(0,0,0,0.08);
@@ -352,17 +374,18 @@
 
         .faq-question {
             padding: 20px;
-            background: var(--light);
+            background: white;
             cursor: pointer;
             display: flex;
             justify-content: space-between;
             align-items: center;
             font-weight: 600;
             transition: background 0.3s;
+            border-bottom: 1px solid #f0f0f0;
         }
 
         .faq-question:hover {
-            background: #e9ecef;
+            background: #f8f9fa;
         }
 
         .faq-question i {
@@ -464,6 +487,36 @@
             font-size: 14px;
         }
 
+        /* Quick Navigation Sidebar */
+        .quick-nav {
+            position: fixed;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            padding: 15px 10px;
+            z-index: 100;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .nav-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #ddd;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .nav-dot:hover, .nav-dot.active {
+            background: var(--primary);
+            transform: scale(1.3);
+        }
+
         /* Mobile Responsiveness */
         @media (max-width: 768px) {
             .header-main .container {
@@ -528,13 +581,8 @@
                 margin-top: 5px;
             }
             
-            .faq-categories {
-                top: 100px;
-                padding: 10px;
-            }
-            
-            .faq-section {
-                scroll-margin-top: 160px;
+            .quick-nav {
+                display: none;
             }
         }
     </style>
@@ -558,7 +606,7 @@
     <header class="header-main">
         <div class="container">
             <a href="index.html" class="logo" title="Return to Home">
-                <img src="national-coat-of-arms-of-the-republic-of-uganda-DTK91D.jpg" alt="Uganda Coat of Arms">
+                <img src="https://via.placeholder.com/60x60/0056a6/ffffff?text=TC" alt="Kayunga Town Council Logo">
                 <div class="logo-text">
                     <h1>KAYUNGA TOWN COUNCIL</h1>
                     <span>Advancing Together for a Greater Kayunga</span>
@@ -618,6 +666,16 @@
         </div>
     </section>
 
+    <!-- Quick Navigation Sidebar -->
+    <div class="quick-nav">
+        <div class="nav-dot active" data-section="services-section"></div>
+        <div class="nav-dot" data-section="business-section"></div>
+        <div class="nav-dot" data-section="payments-section"></div>
+        <div class="nav-dot" data-section="planning-section"></div>
+        <div class="nav-dot" data-section="development-section"></div>
+        <div class="nav-dot" data-section="general-section"></div>
+    </div>
+
     <!-- FAQ Content -->
     <section class="faq-container">
         <div class="container">
@@ -633,7 +691,10 @@
 
             <!-- SERVICES SECTION -->
             <div class="faq-section" id="services-section">
-                <h2><i class="fas fa-cogs"></i> Services</h2>
+                <h2>
+                    <span><i class="fas fa-cogs"></i> Services</span>
+                    <i class="fas fa-chevron-down"></i>
+                </h2>
                 <div class="faq-list">
                     <div class="faq-item" data-category="services">
                         <div class="faq-question">
@@ -689,7 +750,10 @@
 
             <!-- BUSINESS & LICENSING SECTION -->
             <div class="faq-section" id="business-section">
-                <h2><i class="fas fa-briefcase"></i> Business & Licensing</h2>
+                <h2>
+                    <span><i class="fas fa-briefcase"></i> Business & Licensing</span>
+                    <i class="fas fa-chevron-down"></i>
+                </h2>
                 <div class="faq-list">
                     <div class="faq-item" data-category="business">
                         <div class="faq-question">
@@ -746,7 +810,10 @@
 
             <!-- PAYMENTS & FEES SECTION -->
             <div class="faq-section" id="payments-section">
-                <h2><i class="fas fa-money-bill-wave"></i> Payments & Fees</h2>
+                <h2>
+                    <span><i class="fas fa-money-bill-wave"></i> Payments & Fees</span>
+                    <i class="fas fa-chevron-down"></i>
+                </h2>
                 <div class="faq-list">
                     <div class="faq-item" data-category="payments">
                         <div class="faq-question">
@@ -802,7 +869,10 @@
 
             <!-- PHYSICAL PLANNING SECTION -->
             <div class="faq-section" id="planning-section">
-                <h2><i class="fas fa-drafting-compass"></i> Physical Planning & Development Applications</h2>
+                <h2>
+                    <span><i class="fas fa-drafting-compass"></i> Physical Planning & Development Applications</span>
+                    <i class="fas fa-chevron-down"></i>
+                </h2>
                 <div class="faq-list">
                     <div class="faq-item" data-category="planning">
                         <div class="faq-question">
@@ -909,9 +979,12 @@
                 </div>
             </div>
 
-            <!-- DEVELOPMENT APPLICATIONS SECTION (KCCA INSPIRED) -->
+            <!-- DEVELOPMENT APPLICATIONS SECTION -->
             <div class="faq-section" id="development-section">
-                <h2><i class="fas fa-file-alt"></i> Development Applications</h2>
+                <h2>
+                    <span><i class="fas fa-file-alt"></i> Development Applications</span>
+                    <i class="fas fa-chevron-down"></i>
+                </h2>
                 <div class="faq-list">
                     <div class="faq-item" data-category="development">
                         <div class="faq-question">
@@ -1090,7 +1163,10 @@
 
             <!-- GENERAL INFORMATION SECTION -->
             <div class="faq-section" id="general-section">
-                <h2><i class="fas fa-info-circle"></i> General Information</h2>
+                <h2>
+                    <span><i class="fas fa-info-circle"></i> General Information</span>
+                    <i class="fas fa-chevron-down"></i>
+                </h2>
                 <div class="faq-list">
                     <div class="faq-item" data-category="general">
                         <div class="faq-question">
@@ -1232,8 +1308,10 @@
         const categoryButtons = document.querySelectorAll('.category-btn');
         const searchInput = document.querySelector('.faq-search input');
         const faqSections = document.querySelectorAll('.faq-section');
+        const sectionHeaders = document.querySelectorAll('.faq-section h2');
+        const navDots = document.querySelectorAll('.nav-dot');
 
-        // Toggle FAQ answers
+        // Toggle individual FAQ answers
         faqItems.forEach(item => {
             const question = item.querySelector('.faq-question');
             question.addEventListener('click', () => {
@@ -1241,7 +1319,15 @@
             });
         });
 
-        // Category filtering with auto-scroll
+        // Toggle entire section visibility - INDEPENDENT EXPANSION
+        sectionHeaders.forEach(header => {
+            header.addEventListener('click', () => {
+                const section = header.closest('.faq-section');
+                section.classList.toggle('active');
+            });
+        });
+
+        // Category filtering - AUTO EXPAND AND SCROLL TO SECTION
         categoryButtons.forEach(button => {
             button.addEventListener('click', () => {
                 // Remove active class from all buttons
@@ -1265,6 +1351,10 @@
                 if (category !== 'all' && sectionId) {
                     const targetSection = document.getElementById(sectionId);
                     if (targetSection) {
+                        // Expand the target section
+                        targetSection.classList.add('active');
+                        
+                        // Scroll to the section
                         targetSection.scrollIntoView({ 
                             behavior: 'smooth',
                             block: 'start'
@@ -1280,9 +1370,60 @@
             });
         });
 
+        // Quick navigation dots - scroll to section WITHOUT expanding
+        navDots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                const sectionId = dot.getAttribute('data-section');
+                const targetSection = document.getElementById(sectionId);
+                if (targetSection) {
+                    // Scroll to the section WITHOUT expanding it
+                    targetSection.scrollIntoView({ 
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    
+                    // Update active nav dot
+                    navDots.forEach(d => d.classList.remove('active'));
+                    dot.classList.add('active');
+                }
+            });
+        });
+
+        // Update active nav dot based on scroll position
+        function updateActiveNavDot() {
+            const scrollPosition = window.scrollY + 150;
+            
+            faqSections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
+                const sectionId = section.getAttribute('id');
+                
+                if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                    // Remove active class from all dots
+                    navDots.forEach(dot => dot.classList.remove('active'));
+                    // Add active class to corresponding dot
+                    const activeDot = document.querySelector(`.nav-dot[data-section="${sectionId}"]`);
+                    if (activeDot) {
+                        activeDot.classList.add('active');
+                    }
+                }
+            });
+        }
+
+        // Listen for scroll events
+        window.addEventListener('scroll', updateActiveNavDot);
+
         // Search functionality
         searchInput.addEventListener('input', (e) => {
             const searchTerm = e.target.value.toLowerCase();
+            
+            if (searchTerm === '') {
+                // If search is empty, show all items
+                faqItems.forEach(item => {
+                    item.style.display = 'block';
+                });
+                return;
+            }
             
             faqItems.forEach(item => {
                 const question = item.querySelector('.faq-question').textContent.toLowerCase();
@@ -1293,6 +1434,22 @@
                 } else {
                     item.style.display = 'none';
                 }
+            });
+            
+            // Update category button to "All" when searching
+            categoryButtons.forEach(btn => {
+                if (btn.getAttribute('data-category') === 'all') {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+        });
+
+        // Initialize all sections as visible
+        window.addEventListener('DOMContentLoaded', () => {
+            faqSections.forEach(section => {
+                section.style.display = 'block';
             });
         });
     </script>
