@@ -299,6 +299,13 @@
             gap: 15px;
             margin-bottom: 40px;
             justify-content: center;
+            position: sticky;
+            top: 120px;
+            background: white;
+            padding: 15px;
+            z-index: 100;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-radius: 8px;
         }
 
         .category-btn {
@@ -319,6 +326,7 @@
 
         .faq-section {
             margin-bottom: 50px;
+            scroll-margin-top: 180px;
         }
 
         .faq-section h2 {
@@ -519,6 +527,15 @@
             .social-links {
                 margin-top: 5px;
             }
+            
+            .faq-categories {
+                top: 100px;
+                padding: 10px;
+            }
+            
+            .faq-section {
+                scroll-margin-top: 160px;
+            }
         }
     </style>
 </head>
@@ -606,16 +623,16 @@
         <div class="container">
             <div class="faq-categories">
                 <button class="category-btn active" data-category="all">All Questions</button>
-                <button class="category-btn" data-category="services">Services</button>
-                <button class="category-btn" data-category="business">Business & Licensing</button>
-                <button class="category-btn" data-category="payments">Payments & Fees</button>
-                <button class="category-btn" data-category="planning">Physical Planning</button>
-                <button class="category-btn" data-category="development">Development Projects</button>
-                <button class="category-btn" data-category="general">General Information</button>
+                <button class="category-btn" data-category="services" data-section="services-section">Services</button>
+                <button class="category-btn" data-category="business" data-section="business-section">Business & Licensing</button>
+                <button class="category-btn" data-category="payments" data-section="payments-section">Payments & Fees</button>
+                <button class="category-btn" data-category="planning" data-section="planning-section">Physical Planning</button>
+                <button class="category-btn" data-category="development" data-section="development-section">Development Applications</button>
+                <button class="category-btn" data-category="general" data-section="general-section">General Information</button>
             </div>
 
             <!-- SERVICES SECTION -->
-            <div class="faq-section">
+            <div class="faq-section" id="services-section">
                 <h2><i class="fas fa-cogs"></i> Services</h2>
                 <div class="faq-list">
                     <div class="faq-item" data-category="services">
@@ -671,7 +688,7 @@
             </div>
 
             <!-- BUSINESS & LICENSING SECTION -->
-            <div class="faq-section">
+            <div class="faq-section" id="business-section">
                 <h2><i class="fas fa-briefcase"></i> Business & Licensing</h2>
                 <div class="faq-list">
                     <div class="faq-item" data-category="business">
@@ -728,7 +745,7 @@
             </div>
 
             <!-- PAYMENTS & FEES SECTION -->
-            <div class="faq-section">
+            <div class="faq-section" id="payments-section">
                 <h2><i class="fas fa-money-bill-wave"></i> Payments & Fees</h2>
                 <div class="faq-list">
                     <div class="faq-item" data-category="payments">
@@ -784,7 +801,7 @@
             </div>
 
             <!-- PHYSICAL PLANNING SECTION -->
-            <div class="faq-section">
+            <div class="faq-section" id="planning-section">
                 <h2><i class="fas fa-drafting-compass"></i> Physical Planning & Development Applications</h2>
                 <div class="faq-list">
                     <div class="faq-item" data-category="planning">
@@ -892,50 +909,187 @@
                 </div>
             </div>
 
-            <!-- DEVELOPMENT PROJECTS SECTION -->
-            <div class="faq-section">
-                <h2><i class="fas fa-hard-hat"></i> Development Projects</h2>
+            <!-- DEVELOPMENT APPLICATIONS SECTION (KCCA INSPIRED) -->
+            <div class="faq-section" id="development-section">
+                <h2><i class="fas fa-file-alt"></i> Development Applications</h2>
                 <div class="faq-list">
                     <div class="faq-item" data-category="development">
                         <div class="faq-question">
-                            How can I find out about upcoming development projects in my area?
+                            What is the process for submitting a development application?
                             <i class="fas fa-chevron-down"></i>
                         </div>
                         <div class="faq-answer">
-                            <p>Information about upcoming development projects is available through:</p>
-                            <ul>
-                                <li>Our official website's Projects section</li>
-                                <li>Public notices in local newspapers</li>
-                                <li>Community meetings announced through local leaders</li>
-                                <li>Our social media channels</li>
-                                <li>The physical notice board at our main offices</li>
-                            </ul>
-                            <p>Major projects typically have public consultation periods where residents can provide input.</p>
+                            <p>The development application process involves the following steps:</p>
+                            <ol>
+                                <li>Pre-application consultation with the Physical Planning Department</li>
+                                <li>Preparation of required documents and plans</li>
+                                <li>Submission of the complete application package</li>
+                                <li>Initial review and validation of documents</li>
+                                <li>Technical assessment by relevant departments</li>
+                                <li>Site inspection by planning officials</li>
+                                <li>Review and decision by the Planning Committee</li>
+                                <li>Issuance of development permission or rejection letter</li>
+                            </ol>
                         </div>
                     </div>
 
                     <div class="faq-item" data-category="development">
                         <div class="faq-question">
-                            How can I apply for a building permit?
+                            What happens if my application is incomplete?
                             <i class="fas fa-chevron-down"></i>
                         </div>
                         <div class="faq-answer">
-                            <p>To apply for a building permit:</p>
-                            <ol>
-                                <li>Obtain and complete the application form from our Planning Department</li>
-                                <li>Submit architectural drawings signed by a registered architect</li>
-                                <li>Provide proof of land ownership or authorization to build</li>
-                                <li>Submit structural calculations (for buildings over 2 stories)</li>
-                                <li>Pay the applicable fees</li>
-                            </ol>
-                            <p>The approval process typically takes 4-6 weeks for residential buildings and longer for commercial structures.</p>
+                            <p>If your application is incomplete:</p>
+                            <ul>
+                                <li>You will receive a notice specifying the missing documents or information</li>
+                                <li>The processing timeline will be paused until all requirements are met</li>
+                                <li>You have 30 days to submit the missing items, after which your application may be considered withdrawn</li>
+                                <li>Application fees are non-refundable if the application is withdrawn or rejected due to incompleteness</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="faq-item" data-category="development">
+                        <div class="faq-question">
+                            Can I amend my development application after submission?
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Yes, you can request amendments to your development application, but:</p>
+                            <ul>
+                                <li>Minor amendments may be accepted during the review process</li>
+                                <li>Major changes may require withdrawal of the original application and submission of a new one</li>
+                                <li>Additional fees may apply for processing amendments</li>
+                                <li>The processing timeline may be extended for amended applications</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="faq-item" data-category="development">
+                        <div class="faq-question">
+                            What is the validity period of an approved development permission?
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Development permissions are valid for specific periods:</p>
+                            <ul>
+                                <li><strong>Standard permissions:</strong> 2 years from the date of approval</li>
+                                <li><strong>Large-scale developments:</strong> 3 years from the date of approval</li>
+                                <li><strong>Subdivision approvals:</strong> 3 years from the date of approval</li>
+                            </ul>
+                            <p>You may apply for an extension before the expiry date, subject to approval and payment of extension fees.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item" data-category="development">
+                        <div class="faq-question">
+                            What should I do if my application is rejected?
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>If your application is rejected:</p>
+                            <ul>
+                                <li>You will receive a written explanation of the reasons for rejection</li>
+                                <li>You may address the issues identified and resubmit the application</li>
+                                <li>You have the right to appeal the decision within 30 days of notification</li>
+                                <li>The appeal process involves submitting a formal appeal to the Town Clerk with supporting documents</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="faq-item" data-category="development">
+                        <div class="faq-question">
+                            Do I need separate approvals from other agencies?
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Depending on your project, you may need additional approvals from:</p>
+                            <ul>
+                                <li>National Water and Sewerage Corporation (NWSC) for water and sewerage connections</li>
+                                <li>Uganda Electricity Distribution Company Limited (UEDCL) for power supply</li>
+                                <li>National Environment Management Authority (NEMA) for environmental compliance</li>
+                                <li>Ministry of Lands, Housing and Urban Development for certain land transactions</li>
+                                <li>Uganda National Roads Authority (UNRA) for developments affecting major roads</li>
+                            </ul>
+                            <p>It is your responsibility to obtain all necessary approvals before commencing development.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item" data-category="development">
+                        <div class="faq-question">
+                            What is the role of the Physical Planning Committee?
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>The Physical Planning Committee:</p>
+                            <ul>
+                                <li>Reviews development applications and makes decisions on approval or rejection</li>
+                                <li>Ensures compliance with physical planning laws and regulations</li>
+                                <li>Considers public input and technical assessments</li>
+                                <li>May impose conditions on approved developments</li>
+                                <li>Hears appeals on development decisions</li>
+                            </ul>
+                            <p>The Committee typically meets monthly to consider applications.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item" data-category="development">
+                        <div class="faq-question">
+                            Are there different types of development applications?
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Yes, there are several types of development applications:</p>
+                            <ul>
+                                <li><strong>Outline Permission:</strong> For establishing the principle of development</li>
+                                <li><strong>Detailed Permission:</strong> For full approval of a specific development</li>
+                                <li><strong>Change of Use:</strong> For changing the use of land or buildings</li>
+                                <li><strong>Subdivision:</strong> For dividing land into smaller parcels</li>
+                                <li><strong>Extension/Renovation:</strong> For extending or renovating existing structures</li>
+                                <li><strong>Advertisement:</strong> For display of signs and advertisements</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="faq-item" data-category="development">
+                        <div class="faq-question">
+                            What are the consequences of developing without permission?
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Developing without permission is an offense that may result in:</p>
+                            <ul>
+                                <li>Issuance of an enforcement notice requiring you to stop work</li>
+                                <li>Demolition of unauthorized structures at your expense</li>
+                                <li>Substantial fines and legal prosecution</li>
+                                <li>Difficulty in obtaining future planning permissions</li>
+                                <li>Inability to obtain occupancy certificates for the development</li>
+                            </ul>
+                            <p>It is always advisable to obtain proper permission before commencing any development.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item" data-category="development">
+                        <div class="faq-question">
+                            How can I check the status of my development application?
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>You can check your application status through:</p>
+                            <ul>
+                                <li>Our online application tracking system (if available)</li>
+                                <li>Visiting the Physical Planning Department with your application reference number</li>
+                                <li>Calling the Planning Department at +256 414 231 200</li>
+                                <li>Emailing the department at planning@kayungatc.go.ug</li>
+                            </ul>
+                            <p>Please have your application reference number ready when making inquiries.</p>
                         </div>
                     </div>
                 </div>
             </div>
 
             <!-- GENERAL INFORMATION SECTION -->
-            <div class="faq-section">
+            <div class="faq-section" id="general-section">
                 <h2><i class="fas fa-info-circle"></i> General Information</h2>
                 <div class="faq-list">
                     <div class="faq-item" data-category="general">
@@ -1077,6 +1231,7 @@
         const faqItems = document.querySelectorAll('.faq-item');
         const categoryButtons = document.querySelectorAll('.category-btn');
         const searchInput = document.querySelector('.faq-search input');
+        const faqSections = document.querySelectorAll('.faq-section');
 
         // Toggle FAQ answers
         faqItems.forEach(item => {
@@ -1086,7 +1241,7 @@
             });
         });
 
-        // Category filtering
+        // Category filtering with auto-scroll
         categoryButtons.forEach(button => {
             button.addEventListener('click', () => {
                 // Remove active class from all buttons
@@ -1095,6 +1250,7 @@
                 button.classList.add('active');
                 
                 const category = button.getAttribute('data-category');
+                const sectionId = button.getAttribute('data-section');
                 
                 // Show/hide FAQ items based on category
                 faqItems.forEach(item => {
@@ -1104,6 +1260,23 @@
                         item.style.display = 'none';
                     }
                 });
+                
+                // Auto-scroll to section if not "all" category
+                if (category !== 'all' && sectionId) {
+                    const targetSection = document.getElementById(sectionId);
+                    if (targetSection) {
+                        targetSection.scrollIntoView({ 
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                } else if (category === 'all') {
+                    // Scroll to top of FAQ container when "all" is selected
+                    document.querySelector('.faq-container').scrollIntoView({ 
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
             });
         });
 
