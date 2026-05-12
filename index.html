@@ -10,87 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
 
-     .news-slider-section {
-    padding: 20px 0 40px;
-    background: #fff;
-}
-
-.news-slider-title {
-    font-size: 44px;
-    color: #c40000;
-    font-weight: 800;
-    margin-bottom: 20px;
-    line-height: 1;
-}
-
-.news-slider {
-    position: relative;
-    width: 100%;
-    overflow: visible;
-}
-
-.slides {
-    width: 100%;
-    height: 780px;
-    overflow: hidden;
-}
-
-.slide {
-    display: none;
-    width: 100%;
-    height: 100%;
-}
-
-.slide.active {
-    display: block;
-}
-
-.slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.slide-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: #333;
-    color: white;
-    border: none;
-    width: 34px;
-    height: 34px;
-    border-radius: 50%;
-    cursor: pointer;
-    z-index: 10;
-    font-size: 18px;
-}
-
-.slide-btn.prev {
-    left: -18px;
-}
-
-.slide-btn.next {
-    right: -18px;
-}
-
-@media (max-width: 768px) {
-    .news-slider-title {
-        font-size: 32px;
-    }
-
-    .slides {
-        height: 350px;
-    }
-
-    .slide-btn.prev {
-        left: 5px;
-    }
-
-    .slide-btn.next {
-        right: 5px;
-    }
-}
+    
         * {
             margin: 0;
             padding: 0;
@@ -749,24 +669,7 @@
         }
     </style>
 </head>
-<script>
-let currentSlide = 0;
-const slides = document.querySelectorAll('.slide');
 
-function showSlide(index) {
-    slides.forEach(slide => slide.classList.remove('active'));
-
-    if (index >= slides.length) currentSlide = 0;
-    if (index < 0) currentSlide = slides.length - 1;
-
-    slides[currentSlide].classList.add('active');
-}
-
-function moveSlide(step) {
-    currentSlide += step;
-    showSlide(currentSlide);
-}
-</script>
 <body>
     <div class="header-top">
         <div class="container">
