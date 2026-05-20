@@ -165,16 +165,18 @@
 
         /* NEWS HERO */
         .news-hero{
-            height:350px;
-            background:
-            linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
-            url('IRAS.jpg');
-            background-size:cover;
-            background-position:center;
-            display:flex;
-            align-items:center;
-            color:white;
-        }
+    height:350px;
+    background:
+    linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+    url('IRAS.jpg');
+    background-size: contain;   /* changed from cover to contain */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #0b2d4d; /* fills empty space nicely */
+    display:flex;
+    align-items:center;
+    color:white;
+}
 
         .news-hero-content{
             max-width:800px;
