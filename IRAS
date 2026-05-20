@@ -1,0 +1,542 @@
+<!-- IRAS NEWS PAGE -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IRAS News - Kayunga Town Council</title>
+
+    <link rel="icon" type="image/jpeg" href="national-coat-of-arms-of-the-republic-of-uganda-DTK91D.jpg">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root{
+            --primary:#0056a6;
+            --secondary:#ffcc00;
+            --dark:#333;
+            --light:#f8f9fa;
+            --gray:#6c757d;
+        }
+
+        body{
+            background:#f5f5f5;
+            color:var(--dark);
+            line-height:1.7;
+        }
+
+        a{
+            text-decoration:none;
+            color:inherit;
+        }
+
+        .container{
+            width:100%;
+            max-width:1200px;
+            margin:auto;
+            padding:0 15px;
+        }
+
+        .btn{
+            display:inline-block;
+            padding:10px 20px;
+            background:var(--primary);
+            color:white;
+            border-radius:4px;
+            font-weight:600;
+            transition:0.3s;
+        }
+
+        .btn:hover{
+            background:#003d7a;
+        }
+
+        /* HEADER TOP */
+        .header-top{
+            background:var(--primary);
+            color:white;
+            padding:8px 0;
+            font-size:14px;
+        }
+
+        .header-top .container{
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+        }
+
+        .social-links a{
+            margin-left:15px;
+            transition:0.3s;
+        }
+
+        .social-links a:hover{
+            color:var(--secondary);
+        }
+
+        /* MAIN HEADER */
+        .header-main{
+            background:white;
+            position:sticky;
+            top:0;
+            z-index:1000;
+            box-shadow:0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-main .container{
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            padding:15px;
+        }
+
+        .logo{
+            display:flex;
+            align-items:center;
+        }
+
+        .logo img{
+            height:60px;
+            margin-right:10px;
+        }
+
+        .logo-text h1{
+            font-size:24px;
+            color:var(--primary);
+        }
+
+        .logo-text span{
+            color:var(--gray);
+            font-size:14px;
+        }
+
+        .search-box{
+            display:flex;
+            border:1px solid #ddd;
+            border-radius:4px;
+            overflow:hidden;
+        }
+
+        .search-box input{
+            padding:8px 12px;
+            border:none;
+            width:250px;
+        }
+
+        .search-box button{
+            background:var(--primary);
+            color:white;
+            border:none;
+            padding:0 15px;
+            cursor:pointer;
+        }
+
+        /* NAVIGATION */
+        .main-nav{
+            background:var(--primary);
+        }
+
+        .main-nav ul{
+            display:flex;
+            list-style:none;
+        }
+
+        .main-nav li{
+            position:relative;
+        }
+
+        .main-nav a{
+            display:block;
+            padding:15px 20px;
+            color:white;
+            font-weight:500;
+        }
+
+        .main-nav a:hover{
+            background:rgba(255,255,255,0.1);
+        }
+
+        /* NEWS HERO */
+        .news-hero{
+            height:350px;
+            background:
+            linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+            url('IRAS.jpg');
+            background-size:cover;
+            background-position:center;
+            display:flex;
+            align-items:center;
+            color:white;
+        }
+
+        .news-hero-content{
+            max-width:800px;
+        }
+
+        .news-hero h1{
+            font-size:48px;
+            margin-bottom:20px;
+            line-height:1.2;
+        }
+
+        .news-meta{
+            display:flex;
+            gap:20px;
+            font-size:15px;
+        }
+
+        .news-meta i{
+            color:var(--secondary);
+            margin-right:5px;
+        }
+
+        /* ARTICLE */
+        .news-article{
+            padding:70px 0;
+            background:white;
+        }
+
+        .article-wrapper{
+            max-width:900px;
+            margin:auto;
+        }
+
+        .article-image{
+            margin-bottom:35px;
+        }
+
+        .article-image img{
+            width:100%;
+            border-radius:10px;
+            box-shadow:0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .article-content h2{
+            color:var(--primary);
+            margin-bottom:20px;
+            font-size:34px;
+        }
+
+        .article-content p{
+            margin-bottom:25px;
+            font-size:18px;
+            color:#444;
+        }
+
+        .highlight-box{
+            background:#eef5fc;
+            border-left:5px solid var(--primary);
+            padding:25px;
+            margin:35px 0;
+            border-radius:6px;
+        }
+
+        .highlight-box h3{
+            color:var(--primary);
+            margin-bottom:10px;
+        }
+
+        /* FOOTER */
+        .footer{
+            background:var(--dark);
+            color:white;
+            padding:60px 0 0;
+        }
+
+        .footer-grid{
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+            gap:40px;
+            margin-bottom:40px;
+        }
+
+        .footer-col h3{
+            margin-bottom:20px;
+            position:relative;
+            padding-bottom:10px;
+        }
+
+        .footer-col h3::after{
+            content:'';
+            position:absolute;
+            left:0;
+            bottom:0;
+            width:50px;
+            height:2px;
+            background:var(--secondary);
+        }
+
+        .footer-links{
+            list-style:none;
+        }
+
+        .footer-links li{
+            margin-bottom:10px;
+        }
+
+        .footer-links a{
+            color:#bbb;
+        }
+
+        .footer-links a:hover{
+            color:var(--secondary);
+        }
+
+        .contact-info{
+            list-style:none;
+        }
+
+        .contact-info li{
+            margin-bottom:15px;
+            display:flex;
+        }
+
+        .contact-info i{
+            color:var(--secondary);
+            margin-right:10px;
+        }
+
+        .footer-bottom{
+            background:#222;
+            text-align:center;
+            padding:20px 0;
+            color:#bbb;
+            font-size:14px;
+        }
+
+        @media(max-width:768px){
+
+            .header-main .container{
+                flex-direction:column;
+                gap:15px;
+            }
+
+            .main-nav ul{
+                flex-direction:column;
+            }
+
+            .news-hero{
+                height:300px;
+            }
+
+            .news-hero h1{
+                font-size:32px;
+            }
+
+            .news-meta{
+                flex-direction:column;
+                gap:10px;
+            }
+
+            .article-content h2{
+                font-size:28px;
+            }
+
+            .article-content p{
+                font-size:16px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- TOP HEADER -->
+    <div class="header-top">
+        <div class="container">
+            <div>
+                <span><i class="fas fa-phone"></i> +256 414 231 200</span>
+                <span style="margin-left:20px;">
+                    <i class="fas fa-envelope"></i> tckayunga@yahoo.com
+                </span>
+            </div>
+
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN HEADER -->
+    <header class="header-main">
+        <div class="container">
+
+            <a href="index.html" class="logo">
+                <img src="national-coat-of-arms-of-the-republic-of-uganda-DTK91D.jpg">
+
+                <div class="logo-text">
+                    <h1>KAYUNGA TOWN COUNCIL</h1>
+                    <span>Advancing Together for a Greater Kayunga</span>
+                </div>
+            </a>
+
+            <div class="search-box">
+                <input type="text" placeholder="Search...">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+
+        </div>
+    </header>
+
+    <!-- NAVIGATION -->
+    <nav class="main-nav">
+        <div class="container">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about-us.html">About Us</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="tenders.html">Tenders</a></li>
+                <li><a href="witzenhausen.html">Witzenhausen</a></li>
+                <li><a href="contact-us.html">Contact Us</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="news-hero">
+        <div class="container">
+            <div class="news-hero-content">
+                <h1>Kayunga Town Council Embraces Digital Revenue Administration Through IRAS</h1>
+
+                <div class="news-meta">
+                    <span><i class="fas fa-calendar-alt"></i> May 29, 2026</span>
+                    <span><i class="fas fa-user"></i> Kayunga Town Council</span>
+                    <span><i class="fas fa-folder"></i> Digital Transformation</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ARTICLE -->
+    <section class="news-article">
+        <div class="container">
+
+            <div class="article-wrapper">
+
+                <div class="article-image">
+                    <img src="IRAS.jpg" alt="IRAS System">
+                </div>
+
+                <div class="article-content">
+
+                    <h2>Strengthening Revenue Collection Through Technology</h2>
+
+                    <p>
+                        Kayunga Town Council has embraced the Integrated Revenue Administration System (IRAS) as part of its commitment to improving revenue collection, accountability, and service delivery within the municipality.
+                    </p>
+
+                    <p>
+                        The adoption of IRAS marks a major milestone in the Town Council’s digital transformation agenda aimed at modernizing local government operations and enhancing efficiency in revenue administration.
+                    </p>
+
+                    <div class="highlight-box">
+                        <h3>What is IRAS?</h3>
+
+                        <p>
+                            The Integrated Revenue Administration System (IRAS) is a digital platform designed to streamline assessment, billing, collection, and management of local government revenues in a transparent and accountable manner.
+                        </p>
+                    </div>
+
+                    <p>
+                        Through the system, taxpayers and business owners can now access revenue services more conveniently while reducing paperwork and minimizing delays associated with manual processes.
+                    </p>
+
+                    <p>
+                        According to the Town Council leadership, the implementation of IRAS is expected to increase local revenue performance, improve monitoring of collections, and support informed decision-making through real-time reporting.
+                    </p>
+
+                    <p>
+                        The Council continues to encourage residents, market vendors, and business operators to cooperate with the new digital system for efficient and transparent revenue management.
+                    </p>
+
+                    <p>
+                        Kayunga Town Council remains committed to innovation and the adoption of modern technologies that enhance public service delivery and contribute towards sustainable urban development.
+                    </p>
+
+                    <a href="index.html" class="btn">
+                        <i class="fas fa-arrow-left"></i> Back to Home
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+
+        <div class="container">
+
+            <div class="footer-grid">
+
+                <div class="footer-col">
+                    <h3>Emergency Contacts</h3>
+
+                    <ul class="contact-info">
+                        <li><i class="fas fa-ambulance"></i> Medical Emergency: 112</li>
+                        <li><i class="fas fa-fire-extinguisher"></i> Fire Department: 111</li>
+                        <li><i class="fas fa-shield-alt"></i> Police: 999</li>
+                        <li><i class="fas fa-tools"></i> Help Desk: 0750858803</li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about-us.html">About Us</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="tenders.html">Tenders</a></li>
+                        <li><a href="contact-us.html">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Useful Links</h3>
+
+                    <ul class="footer-links">
+                        <li><a href="https://kayungahospital.go.ug/">Kayunga Regional Referral Hospital</a></li>
+                        <li><a href="https://kayunga.go.ug/">Kayunga District Local Government</a></li>
+                        <li><a href="https://nira.go.ug/">NIRA</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Contact Us</h3>
+
+                    <ul class="contact-info">
+                        <li><i class="fas fa-map-marker-alt"></i> Mumyuka Road Opp Kayunga Regional Referral Hospital</li>
+                        <li><i class="fas fa-phone"></i> +256 414 231 200</li>
+                        <li><i class="fas fa-envelope"></i> tckayunga@yahoo.com</li>
+                        <li><i class="fas fa-clock"></i> Mon-Fri: 8:00AM - 5:00PM</li>
+                    </ul>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2025 Kayunga Town Council. All Rights Reserved.</p>
+            </div>
+        </div>
+
+    </footer>
+
+</body>
+</html>
